@@ -1,9 +1,12 @@
 from app import app
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, session
+from app.controllers.candidate_match import CandidateMatcher
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
+
+        """
         result = request.form.getlist("1")
         dog=4
         cat=0
@@ -23,9 +26,10 @@ def index():
             thing = "dog"
         else:
             thing = "human"
+        """
+        matcher = CandidateMatcher(1)
+        thing = matcher.get_match(request.form)
 
-        print request.remote_addr
-
-        return render_template("answer.html", thing=thing, ip=request.remote_addr)
+        return render_template("answer.html", thing=thing)
     else:
         return render_template("index.html")
