@@ -9,7 +9,6 @@ bucket = AWS_BUCKET
 class CSVRecorder(object):
 
     def __init__(self):
-        # self.script_dir = os.path.abspath(os.path.dirname(__file__))
         self.rel_path = "app/static/csv"
         self.csv_file = "/test_results.csv"
         self.path = os.path.join(self.rel_path, self.csv_file)
