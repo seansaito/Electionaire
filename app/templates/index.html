@@ -25,8 +25,8 @@
       <h1>Electionaire! Take the survey!</h1>
 
 
-        <h2>1. Dogs are better than cats</h2>
         <form method="POST" action="/">
+        <h2>1. Dogs are better than cats</h2>
             <div class="slider slider-horizontal">
               <input id="ex6" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
               data-slider-value="3" name="1"/>
@@ -41,6 +41,37 @@
 
           </br>
 
+          <h2>2. Dog food is tastier than cat food</h2>
+            <div class="slider slider-horizontal">
+              <input id="ex7" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+              data-slider-value="3" name="2"/>
+              <span id="ex7CurrentSliderValLabel">Importance of issue: <span id="ex7SliderVal">3</span></span></br>
+            </div>
+          </br></br>
+            <input type="radio" name="2" value="4">Agree</br>
+            <input type="radio" name="2" value="3">Agree only when there is a bone</br>
+            <input type="radio" name="2" value="2">Both are meh</br>
+            <input type="radio" name="2" value="1">Disagree only when there is fish</br>
+            <input type="radio" name="2" value="0">Disagree</br>
+
+          </br>
+
+          <h2>3. Cat cafes are more comfortable than dog cafes</h2>
+            <div class="slider slider-horizontal">
+              <input id="ex8" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+              data-slider-value="3" name="3"/>
+              <span id="ex8CurrentSliderValLabel">Importance of issue: <span id="ex8SliderVal">3</span></span></br>
+            </div>
+          </br></br>
+            <input type="radio" name="3" value="4">Agree</br>
+            <input type="radio" name="3" value="3">Agree only when there are not too many cats</br>
+            <input type="radio" name="3" value="2">Gah can't choose</br>
+            <input type="radio" name="3" value="1">Disagree only when dogs are properly leashed</br>
+            <input type="radio" name="3" value="0">Disagree</br>
+
+          </br>
+
+
             <button type="submit">Submit</button>
         </form>
 
@@ -54,6 +85,17 @@
       $("#ex6").on("slide", function(slideEvt) {
         $("#ex6SliderVal").text(slideEvt.value);
       });
+
+      $("#ex7").slider();
+      $("#ex7").on("slide", function(slideEvt) {
+        $("#ex7SliderVal").text(slideEvt.value);
+      });
+
+      $("#ex8").slider();
+      $("#ex8").on("slide", function(slideEvt) {
+        $("#ex8SliderVal").text(slideEvt.value);
+      });
+
     });
   </script>
 

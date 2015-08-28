@@ -25,7 +25,7 @@ class CandidateMatcher():
         self.candidates = {
             "dog": Candidate([(1, 4), (2, 3), (3, 0)], "dog"),
             "cat": Candidate([(1, 0), (2, 1), (3, 4)], "cat"),
-            "human": Candidate([(1, 2), (2, 2), (2, 2)], "human")
+            "human": Candidate([(1, 2), (2, 2), (3, 2)], "human")
         }
         self.num_questions = num_questions
 
