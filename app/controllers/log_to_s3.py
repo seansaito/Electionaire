@@ -15,11 +15,13 @@ class CSVRecorder(object):
         self.path = os.path.join(self.rel_path, self.csv_file)
 
     def record_answer(self, row):
-        fp = open("app/static/csv/test_results.csv", "a")
-        c = csv.writer(fp)
-        c.writerow(row)
-        fp.close()
-
+        try:
+            fp = open("app/static/csv/test_results.csv", "a")
+            c = csv.writer(fp)
+            c.writerow(row)
+            fp.close()
+        except IOError:
+            return
 
 class S3Connector(object):
 
