@@ -1,4 +1,4 @@
-#!C:\Users\SeanSaito\Dev\electionaire\flask\Scripts\python.exe
+#!c:\users\seansaito\dev\electionaire\flask\scripts\python.exe
 from boto.manage.server import Server
 if __name__ == "__main__":
     from optparse import OptionParser

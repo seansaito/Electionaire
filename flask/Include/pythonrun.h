@@ -106,6 +106,7 @@ PyAPI_FUNC(char *) Py_GetExecPrefix(void);
 PyAPI_FUNC(char *) Py_GetPath(void);
 
 /* In their own files */
+PyAPI_FUNC(const char *) Anaconda_GetVersion(void);
 PyAPI_FUNC(const char *) Py_GetVersion(void);
 PyAPI_FUNC(const char *) Py_GetPlatform(void);
 PyAPI_FUNC(const char *) Py_GetCopyright(void);

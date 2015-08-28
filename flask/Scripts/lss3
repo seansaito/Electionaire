@@ -1,4 +1,4 @@
-#!C:\Users\SeanSaito\Dev\electionaire\flask\Scripts\python.exe
+#!c:\users\seansaito\dev\electionaire\flask\scripts\python.exe
 import boto
 from boto.exception import S3ResponseError
 from boto.s3.connection import OrdinaryCallingFormat
