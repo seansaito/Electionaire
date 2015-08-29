@@ -11,7 +11,8 @@ def index():
         num_questions = 3
         matcher = CandidateMatcher(num_questions)
         thing = matcher.get_match(request.form)
-        now = "-".join(datetime.datetime.strftime(datetime.datetime.now(), "%Y, %m, %d, %H, %M, %S").split(", "))
+        now = datetime.datetime(datetime.datetime.now()).isoformat(" ")
+        # now = "-".join(datetime.datetime.strftime(datetime.datetime.now(), "%Y, %m, %d, %H, %M, %S").split(", "))
 
         answers = []
         for i in range(1, num_questions + 1):
