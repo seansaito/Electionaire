@@ -63,6 +63,7 @@ h2 {
     padding: 20px;
     padding-top: 5px;
     border-radius: 25px;
+    margin-bottom: 20px;
 }
 
 .slider-val {
@@ -136,13 +137,47 @@ label {
         float: left;
         text-align: center;
         padding-right: 20px;
-        min-height: 160px;
+        min-height: 180px;
         border-bottom: 2px solid rgba(150,0,0,0.5);
     }
 
     .radio-container {
         font-size: 20px;
         width: 100%;
+        padding-top: 20px;
         padding-left: 25px;
         float: left;
     }
+
+#two-line-qn{
+    min-height: 550px;
+}
+
+#about-us {
+    min-width: 100%;
+    background-color: #EFFBFF;
+    padding: 30px;
+    border-radius: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer {
+    width: 480px;
+    float: none;
+    margin: auto;
+    display: block;
+}
+
+.footer li{
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    display: inline;
+    text-align: center;
+}
+
+.footer a:hover {
+    text-decoration: none;
+    color: #ADBCC3;
+}

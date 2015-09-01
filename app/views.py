@@ -8,7 +8,7 @@ import datetime
 def index():
     if request.method == "POST":
 
-        num_questions = 3
+        num_questions = 7
         matcher = CandidateMatcher(num_questions)
         thing = matcher.get_match(request.form)
         now = "-".join(datetime.datetime.strftime(datetime.datetime.now(), "%Y, %m, %d, %H, %M, %S").split(", "))
@@ -17,7 +17,9 @@ def index():
         for i in range(1, num_questions + 1):
             result = request.form.getlist(str(i))
             answers.append(result)
-        pckg = [now] + answers + [thing]
+        pckg = [now] + answers + [thing["name"]]
+
+        print request.form.getlist("1")
 
         print "Recording answer"
         recorder = CSVRecorder()
@@ -33,4 +35,18 @@ def index():
 
         return render_template("answer.html", thing=thing)
     else:
-        return render_template("index.html")
+        questions = [str(i) for i in range(1, 16)]
+        return render_template("index.html", questions=questions)
+
+
+@app.route("/about", methods=["GET"])
+def about():
+    return render_template("about.html")
+
+@app.route("/contact", methods=["GET"])
+def contact():
+    return render_template("contact.html")
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404

@@ -24,123 +24,373 @@
 </head>
 
 <body>
-  <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-static">
+        <div class="container-fluid">
+            <!-- Brand and toggle get GROUPED for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Electionaire</a>
+            </div>
 
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="container-fluid">
-              <!-- Brand and toggle get GROUPED for better mobile display -->
-              <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#">Brand</a>
-              </div>
+            <!-- COLLECT the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{url_for('index')}}">SURVEY <span class="sr-only">(current)</span></a></li>
+                    <li><a href="{{url_for('about')}}">ABOUT</a></li>
+                    <li><a href="{{url_for('contact')}}">CONTACT</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
 
-              <!-- COLLECT the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">
-                      <li class="active"><a href="#">SURVEY <span class="sr-only">(current)</span></a></li>
-                      <li><a href="#">ABOUT</a></li>
-                      <li><a href="#">CONTACT</a></li>
-                  </ul>
-          </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-      </nav>
-
-    <div class="jumbotron">
-      <h1>Electionaire! Take the survey!</h1>
+        <div class="jumbotron">
+            <h2>Take the survey to find out which party your views align with.</h2>
 
 
-        <form method="POST" action="/">
-        <div class="question">
-            <div class="slider-container">
-                <h2>1. Dogs are better than cats</h2>
-                <div class="slider slider-horizontal">
-                    <input id="ex6" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
-                           data-slider-value="3" name="1"/>
-                    <span id="ex6CurrentSliderValLabel">How important is this issue to you? </span>
-                    <span id="ex6SliderVal">3</span>
+            <form method="POST" action="/">
+                <div class="question">
+                    <h2>Singapore should address income inequality before pursuing economic growth.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex1CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex1SliderVal">3</span>
+                            <input id="ex1" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="1"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="1" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r3" type="radio" name="1" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r5" type="radio" name="1" value="0"><label for="r5"> No</label><br>
+                    </div>
                 </div>
-            </div>
-            <div class="radio-container">
-                <input id="r1" type="radio" name="1" value="4"><label for="r1"> Agree</label></br>
-                <input id="r2" type="radio" name="1" value="3"><label for="r2"> Agree only when the dog has short hair</label></br>
-                <input id="r3" type="radio" name="1" value="2"><label for="r3"> Both are adorable!</label></br>
-                <input id="r4" type="radio" name="1" value="1"><label for="r4"> Disagree only when the cat is not a jerk</label></br>
-                <input id="r5" type="radio" name="1" value="0"><label for="r5"> Disagree</label></br>
-            </div>
 
+                <div class="question" id="two-line-qn">
+                    <h2>Singapore should decrease the number of visas given to low-skill migrants.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex2CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex2SliderVal">3</span>
+                            <input id="ex2" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="2"/>
 
-    </div>
-
-<div class="question">
-    <div class="slider-container">
-        <h2>1. Dogs are better than cats</h2>
-                <div class="slider slider-horizontal">
-                    <input id="ex7" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
-                       data-slider-value="3" name="1"/>
-                    <span id="ex7CurrentSliderValLabel">How important is this issue to you? </span>
-                    <span id="ex7SliderVal">3</span>
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="2" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="2" value="3"><label for="r2"> Yes, Singapore should move away from industries that rely heavily on foreign labor</label><br>
+                        <input id="r3" type="radio" name="2" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="2" value="1"><label for="r4"> No, but only increase the number of visas in certain sectors</label><br>
+                        <input id="r5" type="radio" name="2" value="0"><label for="r5"> No</label><br>
+                    </div>
                 </div>
-            </div>
-            <div class="radio-container">
-                <input id="r1" type="radio" name="1" value="4"><label for="r1"> Agree</label></br>
-                <input id="r2" type="radio" name="1" value="3"><label for="r2"> Agree only when the dog has short hair</label></br>
-                <input id="r3" type="radio" name="1" value="2"><label for="r3"> Both are adorable!</label></br>
-                <input id="r4" type="radio" name="1" value="1"><label for="r4"> Disagree only when the cat is not a jerk</label></br>
-                <input id="r5" type="radio" name="1" value="0"><label for="r5"> Disagree</label></br>
-            </div>
+
+
+                <div class="question" id="two-line-qn">
+                  <h2>Singapore should decrease the number of permanent residencies given to high-skill migrants.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex3CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex3SliderVal">3</span>
+                            <input id="ex3" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="3"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="3" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="3" value="3"><label for="r2"> Yes, Singapore should only bring in foreign talent when there are no Singaporeans to do the job.</label><br>
+                        <input id="r3" type="radio" name="3" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="3" value="1"><label for="r4"> No, Singapore needs migrants even if they are undesirable</label><br>
+                        <input id="r5" type="radio" name="3" value="0"><label for="r5"> No, migrants help spur growth in the economy</label><br>
+                    </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Companies and organizations should have to search for a Singaporean first before considering a foreign worker. </h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex4CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex4SliderVal">3</span>
+                            <input id="ex4" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="4"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="4" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="4" value="3"><label for="r2"> Yes, but this policy should only apply for executive positions. </label><br>
+                        <input id="r3" type="radio" name="4" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="4" value="1"><label for="r4"> No, but if there are two similar candidates and one is Singaporean, he or she should be given the job. </label><br>
+                        <input id="r5" type="radio" name="4" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Singapore should abolish 377A, which criminalizes homosexual acts.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex5CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex5SliderVal">3</span>
+                            <input id="ex5" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="5"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="5" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="5" value="3"><label for="r2"> Yes, but the majority has to approve of any changes to it.</label><br>
+                        <input id="r3" type="radio" name="5" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="5" value="1"><label for="r4"> No, until the majority approves of it.</label><br>
+                        <input id="r5" type="radio" name="5" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Singapore should expand its civil liberties.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex6CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex6SliderVal">3</span>
+                            <input id="ex6" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="6"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="6" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="6" value="3"><label for="r2"> Yes only when the dog has short hair</label><br>
+                        <input id="r3" type="radio" name="6" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="6" value="1"><label for="r4"> No only when the cat is not a jerk</label><br>
+                        <input id="r5" type="radio" name="6" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Singapore should abolish streaming practices in education.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex7CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex7SliderVal">3</span>
+                            <input id="ex7" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="7"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="7" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="7" value="3"><label for="r2"> Yes only when the dog has short hair</label><br>
+                        <input id="r3" type="radio" name="7" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="7" value="1"><label for="r4"> No only when the cat is not a jerk</label><br>
+                        <input id="r5" type="radio" name="7" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Singapore should lower the minimum withdrawal age for CPF</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex8CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex8SliderVal">3</span>
+                            <input id="ex8" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="8"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="8" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="8" value="3"><label for="r2"> Yes only when the dog has short hair</label><br>
+                        <input id="r3" type="radio" name="8" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="8" value="1"><label for="r4"> No only when the cat is not a jerk</label><br>
+                        <input id="r5" type="radio" name="8" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Individuals should be given free access to CPF once they reach the withdrawal age. </h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex9CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex9SliderVal">3</span>
+                            <input id="ex9" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="9"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="9" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="9" value="3"><label for="r2"> Yes only when the dog has short hair</label><br>
+                        <input id="r3" type="radio" name="9" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="9" value="1"><label for="r4"> No only when the cat is not a jerk</label><br>
+                        <input id="r5" type="radio" name="9" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <div class="question">
+                  <h2>CPF money should only be used for retirement purposes.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex10CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex10SliderVal">3</span>
+                            <input id="ex10" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="10"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="10" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="10" value="3"><label for="r2"> Yes only when the dog has short hair</label><br>
+                        <input id="r3" type="radio" name="10" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="10" value="1"><label for="r4"> No only when the cat is not a jerk</label><br>
+                        <input id="r5" type="radio" name="10" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <div class="question">
+                  <h2>The government should increase welfare spending.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex11CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex11SliderVal">3</span>
+                            <input id="ex11" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="11"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="11" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="11" value="3"><label for="r2"> Yes only when the dog has short hair</label><br>
+                        <input id="r3" type="radio" name="11" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="11" value="1"><label for="r4"> No only when the cat is not a jerk</label><br>
+                        <input id="r5" type="radio" name="11" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <div class="question">
+                  <h2>The government should increase taxes on the rich.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex12CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex12SliderVal">3</span>
+                            <input id="ex12" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="12"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="12" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="12" value="3"><label for="r2"> Yes only when the dog has short hair</label><br>
+                        <input id="r3" type="radio" name="12" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="12" value="1"><label for="r4"> No only when the cat is not a jerk</label><br>
+                        <input id="r5" type="radio" name="12" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <div class="question">
+                  <h2>Singapore should establish a minimum wage.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex13CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex13SliderVal">3</span>
+                            <input id="ex13" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="13"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="13" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="13" value="3"><label for="r2"> Yes only when the dog has short hair</label><br>
+                        <input id="r3" type="radio" name="13" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="13" value="1"><label for="r4"> No only when the cat is not a jerk</label><br>
+                        <input id="r5" type="radio" name="13" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <div class="question">
+                  <h2>The government should abolish racial quotas for housing estates.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex14CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex14SliderVal">3</span>
+                            <input id="ex14" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="14"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="14" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="14" value="3"><label for="r2"> Yes only when the dog has short hair</label><br>
+                        <input id="r3" type="radio" name="14" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="14" value="1"><label for="r4"> No only when the cat is not a jerk</label><br>
+                        <input id="r5" type="radio" name="14" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <div class="question">
+                  <h2>Ministerial salaries should be significantly reduced.</h2>
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex15CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex15SliderVal">3</span>
+                            <input id="ex15" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="15"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="15" value="4"><label for="r1"> Yes</label><br>
+                        <input id="r2" type="radio" name="15" value="3"><label for="r2"> Yes only when the dog has short hair</label><br>
+                        <input id="r3" type="radio" name="15" value="2"><label for="r3"> Neutral</label><br>
+                        <input id="r4" type="radio" name="15" value="1"><label for="r4"> No only when the cat is not a jerk</label><br>
+                        <input id="r5" type="radio" name="15" value="0"><label for="r5"> No</label><br>
+                    </div>
+                </div>
+
+                <button id="submit" type="submit">Submit</button>
+            </form>
 
         </div>
 
-        <div class="question">
-            <div class="slider-container">
-                <h2>1. Dogs are better than cats</h2>
-                <div class="slider slider-horizontal">
-                    <input id="ex8" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
-                       data-slider-value="3" name="1"/>
-                    <span id="ex8CurrentSliderValLabel">How important is this issue to you? </span>
-                    <span id="ex8SliderVal">3</span>
-                </div>
-            </div>
-            <div class="radio-container">
-                <input id="r1" type="radio" name="1" value="4"><label for="r1"> Agree</label></br>
-                <input id="r2" type="radio" name="1" value="3"><label for="r2"> Agree only when the dog has short hair</label></br>
-                <input id="r3" type="radio" name="1" value="2"><label for="r3"> Both are adorable!</label></br>
-                <input id="r4" type="radio" name="1" value="1"><label for="r4"> Disagree only when the cat is not a jerk</label></br>
-                <input id="r5" type="radio" name="1" value="0"><label for="r5"> Disagree</label></br>
-            </div>
-        </div>
-
-            <button type="submit">Submit</button>
-        </form>
-
     </div>
 
-  </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
 
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $("#ex6").slider();
-      $("#ex6").on("slide", function(slideEvt) {
-        $("#ex6SliderVal").text(slideEvt.value);
-      });
+          /*
+            $("#ex1").slider();
+            $("#ex1").on("slide", function(slideEvt) {
+                $("#ex1SliderVal").text(slideEvt.value);
+            });
 
-      $("#ex7").slider();
-      $("#ex7").on("slide", function(slideEvt) {
-        $("#ex7SliderVal").text(slideEvt.value);
-      });
+            $("#ex2").slider();
+            $("#ex2").on("slide", function(slideEvt) {
+                $("#ex2SliderVal").text(slideEvt.value);
+            });
 
-      $("#ex8").slider();
-      $("#ex8").on("slide", function(slideEvt) {
-        $("#ex8SliderVal").text(slideEvt.value);
-      });
+            $("#ex3").slider();
+            $("#ex3").on("slide", function(slideEvt) {
+                $("#ex3SliderVal").text(slideEvt.value);
+            });
+          */
 
-    });
-  </script>
+          {% for question in questions %}
+
+          $("#ex" + {{question|safe}}).slider();
+          $("#ex" + {{question|safe}}).on("slide", function(slideEvt) {
+            $("#ex" + {{question|safe}} + "SliderVal").text(slideEvt.value);
+          });
+            {% endfor %}
+
+        });
+
+    </script>
 
 </body>
 </html>
