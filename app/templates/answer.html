@@ -24,12 +24,16 @@
 <body>
   <div class="container">
 
-    <div class="jumbotron text-center">
-      <h1>You are a...
-        <span><img src="/static/img/{{ thing['short'] }}.png" style="max-height: 50%; max-width: 50%;"></span>
+    <div class="jumbotron">
+      <h1>Your matches:
       </h1>
     </br>
-    <h1>{{thing["name"]}}!</h1>
+    {% set counter = 1 %}
+    {% for party in deviation_rankings %}
+        <h2>{{ counter }}. {{party["name"]}}</h2>
+        <h3>Deviation: {{party["deviation"]}}  <span><img src="/static/img/{{ party['short'] }}.png" style="max-height: 10%; max-width: 10%;"></span></h3>
+        {% set counter = counter + 1 %}
+    {% endfor %}
 
     </div>
 

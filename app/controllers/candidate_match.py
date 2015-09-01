@@ -1,4 +1,5 @@
 import json, os
+from collections import OrderedDict
 
 class Candidate(object):
 
@@ -58,15 +59,27 @@ class CandidateMatcher():
 
             for candidate in self.candidates.keys():
                 candidate_answer = self.get_answer(candidate, answer_index)
-                print "%d: %s - %s" % (i, self.candidates[candidate].name, str(candidate_answer))
+                # print "%d: %s - %s" % (i, self.candidates[candidate].name, str(candidate_answer))
                 if candidate_answer != "":
-                    deviation[candidate] += int(importance) * abs(candidate_answer - int(user_choice))
+                    deviation[candidate] += int(importance) * abs(candidate_answer - int(user_choice)) / 10.0
                 else:
-                    deviation[candidate] += int(importance) * abs(self.get_answer("PAP", answer_index) - int(user_choice))
+                    deviation[candidate] += int(importance) * abs(self.get_answer("PAP", answer_index) - int(user_choice)) / 10.0
         # End loop
 
         least_deviation = deviation.keys()[0]
         for candidate in deviation.keys():
             if deviation[candidate] < deviation[least_deviation]:
                 least_deviation = candidate
-        return self.candidates[least_deviation].get_summary()
+
+        sorted_deviation = OrderedDict(sorted(deviation.iteritems(), key=lambda x: x[1])).items()
+
+        to_return = []
+        for result in sorted_deviation:
+            candidate, deviation = result
+            summary = self.candidates[candidate].get_summary()
+            summary["deviation"] = deviation
+            to_return.append(summary)
+
+        print to_return
+
+        return self.candidates[least_deviation].get_summary(), to_return

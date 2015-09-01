@@ -4,13 +4,17 @@ from app.controllers.candidate_match import CandidateMatcher
 from app.controllers.log_to_s3 import CSVRecorder, S3Connector
 import datetime
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET"])
+def splash():
+    return render_template("splash.html")
+
+@app.route("/survey", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
 
-        num_questions = 7
+        num_questions = 15
         matcher = CandidateMatcher(num_questions)
-        thing = matcher.get_match(request.form)
+        thing, deviation_rankings = matcher.get_match(request.form)
         now = "-".join(datetime.datetime.strftime(datetime.datetime.now(), "%Y, %m, %d, %H, %M, %S").split(", "))
 
         answers = []
@@ -33,7 +37,7 @@ def index():
         connector.upload()
         print "Upload done"
 
-        return render_template("answer.html", thing=thing)
+        return render_template("answer.html", thing=thing, deviation_rankings=deviation_rankings)
     else:
         questions = [str(i) for i in range(1, 16)]
         return render_template("index.html", questions=questions)
