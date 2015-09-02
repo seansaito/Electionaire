@@ -4,6 +4,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electionaire</title>
 
+    <meta property="og:url"           content="https://electionaire.herokuapp.com/survey" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="I got {{deviation_rankings[0]['name']}}!" />
+    <meta property="og:description"   content="Take the survey to find out which party your views match with!" />
+    <meta property="og:image"         content="/static/img/logo.png" />
+
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
   <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
@@ -22,9 +28,24 @@
 </head>
 
 <body>
+  <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
   <div class="container">
 
     <div class="jumbotron">
+    <!-- Your share button code -->
+    <div class="fb-share-button"
+        data-href="https://electionaire.herokuapp.com"
+        data-layout="button_count">
+    </div>
       <h1>Your matches:
       </h1>
     </br>
