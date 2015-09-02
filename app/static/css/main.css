@@ -69,6 +69,8 @@ h2 {
 
 label {
     margin-left: 10px;
+    width: 90%;
+    vertical-align: middle;
 }
 
 #two-line-qn{
@@ -81,8 +83,9 @@ label {
     float: left;
     text-align: center;
     padding-right: 20px;
-    min-height: 160px;
-    border-right: 2px solid rgba(150,0,0,0.5);
+    min-height: 200px;
+
+    display: block;
 }
 
 .radio-container {
@@ -90,6 +93,7 @@ label {
     max-width: 70%;
     padding-left: 25px;
     float: left;
+    border-left: 2px solid rgba(150,0,0,0.5);
 }
 
 .slider-handle {
@@ -149,4 +153,60 @@ label {
 .footer a:hover {
     text-decoration: none;
     color: #ADBCC3;
+}
+
+#matches {
+    width: 100%;
+    display: block;
+}
+
+#match-text {
+    width: 60%;
+    float: left;
+}
+
+.match-img {
+    display: inline;
+    float: left;
+    width: 100px;
+}
+
+.question2 {
+    min-width: 100%;
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#party-container {
+    width: 60%;
+    min-height: 100px;
+    padding: 0px;
+    margin: 0px;
+    float: left;
+}
+
+#party-name {
+
+    display:inline-block;
+    margin-left: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+
+}
+
+#percentage {
+    width: 15%;
+    float: right;
+    font-size: 45px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.fb-share-button, .fb_iframe_widget {
+    float: right;
+    vertical-align:bottom;
 }

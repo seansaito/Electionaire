@@ -17,7 +17,7 @@
   <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" media='screen and (min-width: 1001px)' href="/static/css/main.css">
-  <link rel="stylesheet" media='screen and (min-width: 500px) and (max-width: 1000px)' href="/static/css/1000.css">
+  <link rel="stylesheet" media='screen and (max-width: 1000px)' href="/static/css/1000.css">
 
   <style>
     html      { overflow-y: scroll; }
@@ -66,9 +66,10 @@
             <form method="POST" action="{{url_for('index')}}">
                 <div class="question">
                     <h2>Singapore should address income inequality before pursuing economic growth.</h2>
-                    <div class="slider-container">
-                        <div class="slider slider-horizontal">
-                            <span id="ex1CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                    <div class="container">
+                        <div class="slider-container">
+                            <div class="slider slider-horizontal">
+                                <span id="ex1CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex1SliderVal">3</span>
                             <input id="ex1" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="1"/>
@@ -82,13 +83,16 @@
                         <input id="r4" type="radio" name="1" value="1"><label for="r4"> No, as overall growth is the best way to help the poor.</label><br>
                         <input id="r5" type="radio" name="1" value="0"><label for="r5"> No.</label><br>
                     </div>
+                    </div>
+
                 </div>
 
                 <div class="question" id="two-line-qn">
                     <h2>Singapore should grant fewer visas to low-skilled migrants.</h2>
-                    <div class="slider-container">
-                        <div class="slider slider-horizontal">
-                            <span id="ex2CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                    <div class="container">
+                        <div class="slider-container">
+                            <div class="slider slider-horizontal">
+                                <span id="ex2CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex2SliderVal">3</span>
                             <input id="ex2" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="2"/>
@@ -102,11 +106,15 @@
                         <input id="r4" type="radio" name="2" value="1"><label for="r4"> No, but visas should only be increased for industries that Singaporeans don't want to work in.</label><br>
                         <input id="r5" type="radio" name="2" value="0"><label for="r5"> No.</label><br>
                     </div>
+                    </div>
+
                 </div>
 
 
                 <div class="question" id="two-line-qn">
                   <h2>Singapore should grant fewer permanent residencies to high-skilled migrants.</h2>
+                   <div class="container">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
                             <span id="ex3CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
@@ -123,13 +131,17 @@
                         <input id="r4" type="radio" name="3" value="1"><label for="r4"> No, not until its birth rate increases.</label><br>
                         <input id="r5" type="radio" name="3" value="0"><label for="r5"> No.</label><br>
                     </div>
+                   </div>
                 </div>
 
                 <div class="question" id="two-line-qn">
                   <h2>Companies and organizations should be required to search for a Singaporean before hiring a foreigner. </h2>
+
+                       <div class="container">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex4CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex4CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex4SliderVal">3</span>
                             <input id="ex4" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="4"/>
@@ -143,13 +155,15 @@
                         <input id="r4" type="radio" name="4" value="1"><label for="r4"> No, but if there are two similar candidates and one is Singaporean, he or she should be given the job.</label><br>
                         <input id="r5" type="radio" name="4" value="0"><label for="r5"> No.</label><br>
                     </div>
+                       </div>
                 </div>
 
                 <div class="question" id="two-line-qn">
                   <h2>Singapore should abolish 377A, which criminalizes homosexual acts.</h2>
+                   <div class="container">
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex5CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex5CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex5SliderVal">3</span>
                             <input id="ex5" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="5"/>
@@ -163,13 +177,17 @@
                         <input id="r4" type="radio" name="5" value="1"><label for="r4"> No, but if the majority approves, I will accept it. </label><br>
                         <input id="r5" type="radio" name="5" value="0"><label for="r5"> No.</label><br>
                     </div>
+
+                   </div>
                 </div>
 
                 <div class="question" id="two-line-qn">
                   <h2>Singapore should expand its civil liberties (freedom of speech, freedom of public assembly, etc.)</h2>
+                   <div class="container">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex6CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex6CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex6SliderVal">3</span>
                             <input id="ex6" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="6"/>
@@ -183,13 +201,16 @@
                         <input id="r4" type="radio" name="6" value="1"><label for="r4"> No, but punishments for violations should be minimal.</label><br>
                         <input id="r5" type="radio" name="6" value="0"><label for="r5"> No.</label><br>
                     </div>
+                   </div>
                 </div>
 
                 <div class="question" id="two-line-qn">
                   <h2>Singapore should abolish streaming practices in education.</h2>
+                   <div class="container">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex7CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex7CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex7SliderVal">3</span>
                             <input id="ex7" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="7"/>
@@ -203,13 +224,16 @@
                         <input id="r4" type="radio" name="7" value="1"><label for="r4"> No, but streaming at the end of primary school is too early.</label><br>
                         <input id="r5" type="radio" name="7" value="0"><label for="r5"> No.</label><br>
                     </div>
+                   </div>
                 </div>
 
                 <div class="question" id="two-line-qn">
                   <h2>Singapore should lower the minimum withdrawal age for CPF.</h2>
+                   <div class="container">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex8CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex8CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex8SliderVal">3</span>
                             <input id="ex8" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="8"/>
@@ -223,13 +247,16 @@
                         <input id="r4" type="radio" name="8" value="1"><label for="r4"> No, but Singapore should not increase its withdrawal age beyond 65.</label><br>
                         <input id="r5" type="radio" name="8" value="0"><label for="r5"> No.</label><br>
                     </div>
+                   </div>
                 </div>
 
                 <div class="question" id="two-line-qn">
                   <h2>Citizens should have free access to their CPF funds once they reach the withdrawal age. </h2>
+                   <div class="container">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex9CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex9CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex9SliderVal">3</span>
                             <input id="ex9" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="9"/>
@@ -243,13 +270,16 @@
                         <input id="r4" type="radio" name="9" value="1"><label for="r4"> No, access should only be relaxed a bit, as total freedom invites mismanagement. </label><br>
                         <input id="r5" type="radio" name="9" value="0"><label for="r5"> No.</label><br>
                     </div>
+                   </div>
                 </div>
 
                 <div class="question">
                   <h2>CPF money should only be used for retirement purposes.</h2>
+                   <div class="container">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex10CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex10CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex10SliderVal">3</span>
                             <input id="ex10" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="10"/>
@@ -263,13 +293,16 @@
                         <input id="r4" type="radio" name="10" value="1"><label for="r4"> No, citizens should be able to access CPF funds for both retirement and purchasing property.</label><br>
                         <input id="r5" type="radio" name="10" value="0"><label for="r5"> No.</label><br>
                     </div>
+                   </div>
                 </div>
 
                 <div class="question">
                   <h2>The government should increase welfare spending.</h2>
+                   <div class="container">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex11CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex11CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex11SliderVal">3</span>
                             <input id="ex11" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="11"/>
@@ -283,13 +316,16 @@
                         <input id="r4" type="radio" name="11" value="1"><label for="r4"> No, but it should increase its financial support for charitable organizations.</label><br>
                         <input id="r5" type="radio" name="11" value="0"><label for="r5"> No.</label><br>
                     </div>
+                   </div>
                 </div>
 
                 <div class="question">
                   <h2>The government should increase income taxes for the rich.</h2>
+                   <div class="question">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex12CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex12CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex12SliderVal">3</span>
                             <input id="ex12" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="12"/>
@@ -303,13 +339,16 @@
                         <input id="r4" type="radio" name="12" value="1"><label for="r4"> No, but it should increase taxes on the resident wealthy in other ways.</label><br>
                         <input id="r5" type="radio" name="12" value="0"><label for="r5"> No.</label><br>
                     </div>
+                   </div>
                 </div>
 
                 <div class="question">
                   <h2>Singapore should establish a minimum wage.</h2>
+                   <div class="container">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex13CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex13CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex13SliderVal">3</span>
                             <input id="ex13" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="13"/>
@@ -323,13 +362,16 @@
                         <input id="r4" type="radio" name="13" value="1"><label for="r4"> No, but Singapore should provide skills training for its lowest earners.</label><br>
                         <input id="r5" type="radio" name="13" value="0"><label for="r5"> No.</label><br>
                     </div>
+                   </div>
                 </div>
 
                 <div class="question">
                   <h2>The government should abolish racial quotas for housing estates.</h2>
+                   <div class="container">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex14CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex14CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex14SliderVal">3</span>
                             <input id="ex14" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="14"/>
@@ -343,13 +385,16 @@
                         <input id="r4" type="radio" name="14" value="1"><label for="r4"> No, but it should make the quotas more flexible.</label><br>
                         <input id="r5" type="radio" name="14" value="0"><label for="r5"> No.</label><br>
                     </div>
+                   </div>
                 </div>
 
                 <div class="question">
                   <h2>Ministerial salaries should be significantly reduced.</h2>
+                   <div class="container">
+
                     <div class="slider-container">
                         <div class="slider slider-horizontal">
-                            <span id="ex15CurrentSliderValLabel">How important is this issue to you? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span id="ex15CurrentSliderValLabel">How important is this issue to you? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
                             <span class="slider-val" id="ex15SliderVal">3</span>
                             <input id="ex15" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
                                    data-slider-value="3" name="15"/>
@@ -363,6 +408,7 @@
                         <input id="r4" type="radio" name="15" value="1"><label for="r4"> No, but salaries should still be generous relative to the normal population.</label><br>
                         <input id="r5" type="radio" name="15" value="0"><label for="r5"> No.</label><br>
                     </div>
+                   </div>
                 </div>
 
                 <button id="submit" type="submit">Submit</button>

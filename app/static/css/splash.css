@@ -1,5 +1,6 @@
 body {
-    background-color: #2D4255;
+    background-image: url(/static/img/splash2.png);
+    background-size: cover;
 }
 nav {
     margin-top: -50px !important;
@@ -8,24 +9,13 @@ nav {
 nav .container-fluid, .nav{
     font-family: "Roboto Slab", serif;
     font-size: 25px;
+    height: 60px;
     background-color: #A32A37;
-    padding-right: 10px;
 }
 
 nav a {
     color: rgba(255,255,255,0.5) !important;
-    margin-left: 10px;
-    background-color: #A32A37;
 }
-
-nav li:hover {
-    background-color: #A32A37;
-}
-
-.navbar-inverse .navbar-collapse {
-    margin-top: 2px;
-}
-
 
 nav a:hover {
     color: #fff !important;
@@ -50,6 +40,9 @@ nav a {
 
 h1 {
     font-family: "Roboto Slab", serif;
+    color: white;
+    text-align: center;
+    font-size: 45px;
 }
 h2 {
     margin: 15px;
@@ -58,7 +51,7 @@ h2 {
 
 .question {
     min-width: 100%;
-    min-height: 500px;
+    min-height: 250px;
     background-color: #EFFBFF;
     padding: 20px;
     padding-top: 5px;
@@ -80,12 +73,12 @@ h2 {
 
 label {
     margin-left: 10px;
-    width: 90%;
-    vertical-align: middle;
 }
 
+#two-line-qn{
+    min-height: 290px;
+}
 
-/*
 .slider-container {
     font-size: 20px;
     max-width: 30%;
@@ -102,7 +95,6 @@ label {
     padding-left: 25px;
     float: left;
 }
-*/
 
 .slider-handle {
     background-color: #A32A37 !important;
@@ -121,39 +113,24 @@ label {
 }
 
 #submit {
+    margin-top: 50px;
+    font-family: "Roboto Slab", sans-serif;
     margin-left: 35%;
     width: 30%;
-    height: 60px;
+    height: 100px;
     background-color: #A32A37;
     color: #fff;
     border-radius: 10px;
-    font-size: 25px;
+    font-size: 35px;
     border-bottom-color: darkred !important;
     border-top-color: darkred !important;
     border-left-color: darkred !important;
     border-right-color: darkred !important;
 }
 
-    .slider-container {
-        font-size: 20px;
-        width: 100%;
-        float: left;
-        text-align: center;
-        padding-right: 20px;
-        min-height: 210px;
-        border-bottom: 2px solid rgba(150,0,0,0.5);
-    }
-
-    .radio-container {
-        font-size: 20px;
-        width: 100%;
-        padding-top: 20px;
-        padding-left: 25px;
-        float: left;
-    }
-
-#two-line-qn{
-    min-height: 550px;
+#submit a {
+    color: white;
+    text-decoration: none;
 }
 
 #about-us {
@@ -185,61 +162,8 @@ label {
     color: #ADBCC3;
 }
 
-#matches {
-    width: 100%;
-    display: block;
-}
-
-#match-text {
-    width: 60%;
-    float: left;
-}
-
-.match-img {
-    display: inline;
-    float: left;
-    width: 50px;
-    vertical-align: middle;
-}
-
-.question2 {
-    min-width: 100%;
-    background-color: #FFF;
-    padding: 20px;
-    border-radius: 25px;
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-#party-container {
-    width: 60%;
-    min-height: 40px;
-    padding: 0px;
-    margin: 0px;
-    float: left;
-}
-
-#party-name {
-
-    display:inline-block;
-    margin-left: 5%;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-    font-size: 20px;
-
-}
-
-#percentage {
-    width: 15%;
-    float: right;
-    font-size: 25px;
-    margin-right: 5%;
-    margin-left: 0px;
-    vertical-align: middle;
-}
-
-.fb-share-button, .fb_iframe_widget {
-    float: right;
-    vertical-align:bottom;
+#main-splash {
+    padding: 40px;
+    background-color: rgba(45,66,85,0.5);
+    margin-top: 10%;
 }

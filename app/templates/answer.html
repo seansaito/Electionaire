@@ -10,21 +10,23 @@
     <meta property="og:description"   content="Yar yar" />
     <meta property="og:image"         content="https://electionaire-ync-test.s3.amazonaws.com/flag.png" />
 
-  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
-  <!--
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
--->
-  <style>
-    html      { overflow-y: scroll; }
-    body      { padding-top:50px;}
-  </style>
-  <script src="/static/js/jquery-1.11.2.min.js"></script>
-  <script src="/static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" media='screen and (min-width: 1001px)' href="/static/css/main.css">
+    <link rel="stylesheet" media='screen and (max-width: 1000px)' href="/static/css/1000.css">
 
-  <link rel="stylesheet" href="/static/css/bootstrap-slider.css">
-  <script src="/static/js/bootstrap-slider.js"></script>
+    <style>
+        html      { overflow-y: scroll; }
+        body      { padding-top:50px;}
+    </style>
+    <script src="/static/js/jquery-1.11.2.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <script src="/static/js/bootstrap-slider.js"></script>
 </head>
 
 <body>
@@ -43,18 +45,27 @@
     <div class="jumbotron">
     <!-- Your share button code -->
     {% set rankings = deviation_rankings %}
-    <div class="fb-share-button"
-        data-href="http://electionaire.herokuapp.com/{{rankings[0]['name']}}/{{ '%.2f' | format(rankings[0]['deviation'])}}/{{rankings[1]['name']}}/{{ '%.2f' | format(rankings[1]['deviation'])}}/{{rankings[2]['name']}}/{{ '%.2f' | format(rankings[2]['deviation'])}}"
-        data-layout="button">
-    </div>
-      <h1>Your matches:
+
+      <div class="container" id="matches">
+
+      <h1 id="match-text">Your matches
       </h1>
-    </br>
+              <div class="fb-share-button"
+               data-href="http://electionaire.herokuapp.com/{{rankings[0]['name']}}/{{ '%.2f' | format(rankings[0]['deviation'])}}/{{rankings[1]['name']}}/{{ '%.2f' | format(rankings[1]['deviation'])}}/{{rankings[2]['name']}}/{{ '%.2f' | format(rankings[2]['deviation'])}}"
+               data-layout="button">
+          </div>
+      </div>
+    <br>
     {% set counter = 1 %}
     {% for party in deviation_rankings %}
-        <h2>{{ counter }}. {{party["name"]}}</h2>
-        <h3>Percentage Match: {{ "%.2f" | format(party["deviation"])}}%  <span><img src="/static/img/{{ party['short'] }}.png" style="max-height: 10%; max-width: 10%;"></span></h3>
-        {% set counter = counter + 1 %}
+        <div class="question2">
+            <div class="match-img"><img src="/static/img/{{ party['short'] }}.png" style="max-height: 10%; max-width: 100%;"></div>
+            <div id="party-container">
+            <h2 id="party-name"><!--{{ counter }}.--> {{party["name"]}}</h2>
+            </div>
+        <h3 id="percentage">{{ "%.2f" | format(party["deviation"])}}%  </h3>
+        </div>
+<!--        {% set counter = counter + 1 %}-->
     {% endfor %}
 
     </div>
