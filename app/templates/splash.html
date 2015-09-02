@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electionaire</title>
 
-  <meta property="og:url"           content="http://electionaire.herokuapp.com/{{rankings[0]['name']}}/{{ '%.2f' | format(rankings[0]['deviation'])}}/{{rankings[1]['name']}}/{{ '%.2f' | format(rankings[1]['deviation'])}}/{{rankings[2]['name']}}/{{ '%.2f' | format(rankings[2]['deviation'])}}" />
+  <meta property="og:url"           content="http://electionaire.herokuapp.com/{{first}}/{{ '%.2f' | format(fp)}}/{{second}}/{{ '%.2f' | format(sp)}}/{{third}}/{{ '%.2f' | format(tp)}}" />
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="I took the survey!" />
   <meta property="og:description"   content="Here are my top three matches: \n 1. {{first}} - {{'%.2f' | format(fp)}} \n 2. {{second}} - {{ '%.2f' | format(sp)}} \n 3. {{third}} - {{ '%.2f' | format(tp)}}" />
