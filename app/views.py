@@ -18,16 +18,19 @@ def index():
 
         num_questions = 15
         matcher = CandidateMatcher(num_questions)
-        thing, deviation_rankings = matcher.get_match(request.form)
-        now = "-".join(datetime.datetime.strftime(datetime.datetime.now(), "%Y, %m, %d, %H, %M, %S").split(", "))
+        deviation_rankings = matcher.get_match(request.form)
 
         answers = []
+        percentages = []
+        for party in deviation_rankings:
+            percentages.append((party["short"], party["deviation"]))
         for i in range(1, num_questions + 1):
             result = request.form.getlist(str(i))
             answers.append(result)
-        pckg = [now] + answers + [thing["name"]]
+        now = "-".join(datetime.datetime.strftime(datetime.datetime.now(), "%Y, %m, %d, %H, %M, %S").split(", "))
+        pckg = [now] + answers + percentages
 
-        print request.form.getlist("1")
+        print pckg
 
         print "Recording answer"
         recorder = CSVRecorder()
@@ -41,7 +44,7 @@ def index():
         connector.upload()
         print "Upload done"
 
-        return render_template("answer.html", thing=thing, deviation_rankings=deviation_rankings)
+        return render_template("answer.html", deviation_rankings=deviation_rankings)
     else:
         questions = [str(i) for i in range(1, 16)]
         return render_template("index.html", questions=questions, work="works?")
