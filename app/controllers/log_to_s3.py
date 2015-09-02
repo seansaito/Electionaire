@@ -10,12 +10,12 @@ class CSVRecorder(object):
 
     def __init__(self):
         self.rel_path = "app/static/csv"
-        self.csv_file = "/test_results.csv"
+        self.csv_file = "/results.csv"
         self.path = os.path.join(self.rel_path, self.csv_file)
 
     def record_answer(self, row):
         try:
-            fp = open("app/static/csv/test_results.csv", "a")
+            fp = open("app/static/csv/results.csv", "a")
             c = csv.writer(fp)
             c.writerow(row)
             fp.close()
@@ -27,8 +27,8 @@ class S3Connector(object):
     def __init__(self):
         self.c = boto.connect_s3(acc_key, acc_sec)
         self.b = self.c.get_bucket(bucket)
-        self.key = "test_results.csv"
-        self.filename = "app/static/csv/test_results.csv"
+        self.key = "results.csv"
+        self.filename = "app/static/csv/results.csv"
 
     def upload(self):
         bucket_key = Key(self.b)
