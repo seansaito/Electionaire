@@ -1,8 +1,8 @@
 from app import app
-from flask import render_template, redirect, url_for, request, session
+from flask import render_template, redirect, url_for, request, session, send_file
 from app.controllers.candidate_match import CandidateMatcher
 from app.controllers.log_to_s3 import CSVRecorder, S3Connector
-import datetime
+import os, datetime
 
 @app.route("/", methods=["GET"])
 def splash():
@@ -50,6 +50,10 @@ def about():
 @app.route("/contact", methods=["GET"])
 def contact():
     return render_template("contact.html")
+
+@app.route("/image")
+def image():
+    return send_file("static\\img\\logo.png")
 
 @app.errorhandler(404)
 def page_not_found(e):
