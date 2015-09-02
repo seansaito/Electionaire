@@ -40,7 +40,7 @@ def index():
         return render_template("answer.html", thing=thing, deviation_rankings=deviation_rankings)
     else:
         questions = [str(i) for i in range(1, 16)]
-        return render_template("index.html", questions=questions)
+        return render_template("index.html", questions=questions, work="works?")
 
 
 @app.route("/about", methods=["GET"])
