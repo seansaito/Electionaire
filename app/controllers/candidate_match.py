@@ -92,7 +92,10 @@ class CandidateMatcher():
 
         least_deviation = deviation.keys()[0]
         for candidate in deviation.keys():
-            deviation[candidate]["percentage"] = deviation[candidate]["act_difference"] / deviation[candidate]["max_deviation"] * 100
+            try:
+                deviation[candidate]["percentage"] = deviation[candidate]["act_difference"] / deviation[candidate]["max_deviation"] * 100
+            except ZeroDivisionError:
+                deviation[candidate]["percentage"] = 100.0
 
         sorted_deviation = OrderedDict(sorted(deviation.iteritems(), key=lambda x: x[1]["percentage"])).items()
 
@@ -102,7 +105,5 @@ class CandidateMatcher():
             summary = self.candidates[candidate].get_summary()
             summary["deviation"] = 100 - deviation["percentage"]
             to_return.append(summary)
-
-        print to_return
 
         return self.candidates[least_deviation].get_summary(), to_return
