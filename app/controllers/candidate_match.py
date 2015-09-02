@@ -7,9 +7,15 @@ class Candidate(object):
         self.answers = answers
         self.name = name
         self.short = short
+        self.max_deviation = 0
+        self.min_deviation = 0
 
     def get_summary(self):
-        summary =  {"answers": self.answers, "name": self.name, "short": self.short}
+        summary =  {"answers": self.answers,
+                    "name": self.name,
+                    "short": self.short,
+                    "max_deviation": self.max_deviation,
+                    "min_deviation": self.min_deviation}
         return summary
 
 class Singleton(type):
@@ -37,12 +43,26 @@ class CandidateMatcher():
             "PPP": Candidate([(1,2.25),(2,3.25),(3,3.25),(4,3.25),(5,""),(6,3.75),(7,""),(8,3.333333333),(9,4),(10,3),(11,2.5),(12,""),(13,3.25),(14,""),(15,2.75)], "PPP (People's Power Party)", "PPP")
         }
         self.num_questions = num_questions
+        for candidate in self.candidates:
+            self.candidates[candidate].max_deviation, self.candidates[candidate].min_deviation = self.calculate_maxmindeviation(self.candidates[candidate])
+
+    def calculate_maxmindeviation(self, candidate):
+        max_deviation = 0
+        min_deviation = 0
+        for answer in candidate.answers:
+            if answer[1] != "":
+                max_deviation += 5 * max(4 - answer[1], answer[1] - 0)
+                min_deviation += 1 * min(4 - answer[1], answer[1] - 0)
+            else:
+                max_deviation += 5 * 2
+                min_deviation += 1 * 2
+        return max_deviation, min_deviation
 
     def get_answer(self, candidate, index):
         return self.candidates[candidate].answers[index][1]
 
     def get_match(self, request_form):
-        deviation = {key: 0 for key in self.candidates.keys()}
+        deviation = {key: {"act_difference": 0, "max_deviation": 0} for key in self.candidates.keys()}
 
         # Loop through questions
         for i in range(1, self.num_questions + 1):
@@ -61,23 +81,26 @@ class CandidateMatcher():
                 candidate_answer = self.get_answer(candidate, answer_index)
                 # print "%d: %s - %s" % (i, self.candidates[candidate].name, str(candidate_answer))
                 if candidate_answer != "":
-                    deviation[candidate] += int(importance) * abs(candidate_answer - int(user_choice)) / 10.0
+                    deviation[candidate]["act_difference"] += abs(candidate_answer - int(user_choice))
+                    deviation[candidate]["max_deviation"] += 4 * int(importance)
+                    # deviation[candidate] += int(importance) * abs(candidate_answer - int(user_choice)) / (self.candidates[candidate].max_deviation - self.candidates[candidate].min_deviation) * 100
                 else:
-                    deviation[candidate] += int(importance) * abs(self.get_answer("PAP", answer_index) - int(user_choice)) / 10.0
+                    deviation[candidate]["act_difference"] += abs(2 - int(user_choice))
+                    deviation[candidate]["max_deviation"] += 4 * int(importance)
+                    # deviation[candidate] += int(importance) * abs(2 - int(user_choice)) / (self.candidates[candidate].max_deviation - self.candidates[candidate].min_deviation) * 100
         # End loop
 
         least_deviation = deviation.keys()[0]
         for candidate in deviation.keys():
-            if deviation[candidate] < deviation[least_deviation]:
-                least_deviation = candidate
+            deviation[candidate]["percentage"] = deviation[candidate]["act_difference"] / deviation[candidate]["max_deviation"] * 100
 
-        sorted_deviation = OrderedDict(sorted(deviation.iteritems(), key=lambda x: x[1])).items()
+        sorted_deviation = OrderedDict(sorted(deviation.iteritems(), key=lambda x: x[1]["percentage"])).items()
 
         to_return = []
         for result in sorted_deviation:
             candidate, deviation = result
             summary = self.candidates[candidate].get_summary()
-            summary["deviation"] = deviation
+            summary["deviation"] = 100 - deviation["percentage"]
             to_return.append(summary)
 
         print to_return

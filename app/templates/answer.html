@@ -31,7 +31,7 @@
     {% set counter = 1 %}
     {% for party in deviation_rankings %}
         <h2>{{ counter }}. {{party["name"]}}</h2>
-        <h3>Deviation: {{ "%.2f" | format(party["deviation"])}}  <span><img src="/static/img/{{ party['short'] }}.png" style="max-height: 10%; max-width: 10%;"></span></h3>
+        <h3>Percentage Match: {{ "%.2f" | format(party["deviation"])}}%  <span><img src="/static/img/{{ party['short'] }}.png" style="max-height: 10%; max-width: 10%;"></span></h3>
         {% set counter = counter + 1 %}
     {% endfor %}
 
