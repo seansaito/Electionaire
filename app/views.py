@@ -4,9 +4,9 @@ from app.controllers.candidate_match import CandidateMatcher
 from app.controllers.log_to_s3 import CSVRecorder, S3Connector
 import os, datetime
 
-@app.route("/", methods=["GET"])
-def splash():
-    return render_template("splash.html")
+@app.route("/<first>/<fp>/<second>/<sp>/<third>/<tp>", defaults={"first": "", "fp": "", "second": "", "sp": "", "third": "", "tp": ""}, methods=["GET"])
+def splash(first, fp, second, sp, third, tp):
+    return render_template("splash.html", first=first, fp=fp, second=second, sp=sp, third=third, tp=tp)
 
 @app.route("/survey", methods=["GET", "POST"])
 def index():
