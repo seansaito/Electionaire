@@ -243,3 +243,16 @@ label {
     float: right;
     vertical-align:bottom;
 }
+
+p {
+    margin-left: 15px;
+}
+
+li {
+    font-size: 21px !important;
+}
+
+
+#eqn {
+    text-align: center;
+}

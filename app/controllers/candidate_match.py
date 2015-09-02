@@ -68,8 +68,8 @@ class CandidateMatcher():
                 If the party does not have an answer, then candidate_answer is set to 2
                 """
                 if candidate_answer != "":
-                    deviation[candidate]["act_difference"] += abs(candidate_answer - int(user_choice))
-                    deviation[candidate]["max_deviation"] += 4 * int(importance)
+                    deviation[candidate]["act_difference"] += int(importance) * abs(candidate_answer - int(user_choice))
+                    deviation[candidate]["max_deviation"] += abs(int(4 - candidate_answer) - int(candidate_answer - 0)) * int(importance)
                 else:
                     deviation[candidate]["act_difference"] += abs(2 - int(user_choice))
                     deviation[candidate]["max_deviation"] += 4 * int(importance)

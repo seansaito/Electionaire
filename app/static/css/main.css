@@ -135,6 +135,8 @@ label {
     margin-bottom: 20px;
 }
 
+
+
 .footer {
     width: 480px;
     float: none;
@@ -209,4 +211,16 @@ label {
 .fb-share-button, .fb_iframe_widget {
     float: right;
     vertical-align:bottom;
+}
+
+p {
+    margin-left: 15px;
+}
+
+li {
+    font-size: 21px !important;
+}
+
+#eqn {
+    text-align: center;
 }

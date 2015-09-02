@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electionaire</title>
 
-  <meta property="og:url"           content="http://electionaire.herokuapp.com/{{first}}/{{ '%.2f' | format(fp)}}/{{second}}/{{ '%.2f' | format(sp)}}/{{third}}/{{ '%.2f' | format(tp)}}" />
+  <meta property="og:url"           content="http://www.electionaire.info/{{first}}/{{ '%.2f' | format(fp)}}/{{second}}/{{ '%.2f' | format(sp)}}/{{third}}/{{ '%.2f' | format(tp)}}" />
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="I took the survey! Take it to find out which party your views match with." />
   <meta property="og:description"   content="Here are my top three matches: \n 1. {{first}} - {{'%.2f' | format(fp)}}%        \n 2. {{second}} - {{ '%.2f' | format(sp)}}%         \n 3. {{third}} - {{ '%.2f' | format(tp)}}%" />
@@ -47,7 +47,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="{{url_for('index')}}">SURVEY <span class="sr-only">(current)</span></a></li>
                     <li><a href="{{url_for('about')}}">ABOUT</a></li>
-                    <li><a href="{{url_for('contact')}}">CONTACT</a></li>
+                    <li><a href="mailto:weijie.koh@yale-nus.edu.sg" target="_top">CONTACT</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a target="_blank" href="https://github.com/seansaito/Electionaire">VIEW SOURCE CODE  <span><i class="fa fa-github"></i></span></a></li>
