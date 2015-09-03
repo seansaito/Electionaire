@@ -8,8 +8,8 @@
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="I took the survey! Take it to find out which party your views match with." />
   <meta property="og:description"   content="Here are my top three matches: \n 1. {{first}} - {{'%.2f' | format(fp)}}%        \n 2. {{second}} - {{ '%.2f' | format(sp)}}%         \n 3. {{third}} - {{ '%.2f' | format(tp)}}%" />
-  <meta property="og:image"         content="https://electionaire-ync-test.s3.amazonaws.com/flag.png" />
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <meta property="og:image"         content="https://electionaire.s3.amazonaws.com/flag.svg" />
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
     <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -29,6 +29,7 @@
     <script src="/static/js/bootstrap-slider.js"></script>
 </head>
 <body>
+
     <nav class="navbar navbar-inverse navbar-fixed-static">
         <div class="container-fluid">
             <!-- Brand and toggle get GROUPED for better mobile display -->
@@ -45,7 +46,7 @@
             <!-- COLLECT the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{url_for('index')}}">SURVEY <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="{{url_for('index')}}">SURVEY <span class="sr-only">(current)</span></a></li>
                     <li><a href="{{url_for('about')}}">ABOUT</a></li>
                     <li><a href="mailto:weijie.koh@yale-nus.edu.sg" target="_top">CONTACT</a></li>
                 </ul>
@@ -59,7 +60,9 @@
         <h1>15 questions. 10 parties. 5 minutes. </h1>
         <br>
         <h1>Find out which party thinks like you.</h1>
-        <button id="submit"><a href="/survey">Take the Survey!</a></button>
+        <div id="submit-div">
+            <button id="submit"><a href="/survey">Take the Survey!</a></button>
+        </div>
     </div>
 
 </body>

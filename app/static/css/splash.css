@@ -2,20 +2,40 @@ body {
     background-image: url(/static/img/splash2.png);
     background-size: cover;
 }
+
+
+.navbar-nav {
+    margin: 0px;
+}
+
 nav {
     margin-top: -50px !important;
+    width: 100%;
+
 }
+
 
 nav .container-fluid, .nav{
     font-family: "Roboto Slab", serif;
     font-size: 25px;
-    height: 60px;
     background-color: #A32A37;
+    padding-right: 10px;
 }
 
 nav a {
     color: rgba(255,255,255,0.5) !important;
+    margin-left: 20px;
+    background-color: #A32A37;
 }
+
+nav li:hover {
+    background-color: #A32A37;
+}
+
+.navbar-inverse .navbar-collapse {
+    margin-top: 2px;
+}
+
 
 nav a:hover {
     color: #fff !important;
@@ -37,86 +57,25 @@ nav a {
     padding-right: 30px;
     background-color: #ADBCC3;
 }
-
 h1 {
     font-family: "Roboto Slab", serif;
     color: white;
     text-align: center;
     font-size: 45px;
 }
-h2 {
-    margin: 15px;
-    font-family: "Roboto Slab", serif;
-}
 
-.question {
-    min-width: 100%;
-    min-height: 250px;
-    background-color: #EFFBFF;
-    padding: 20px;
-    padding-top: 5px;
-    border-radius: 25px;
-    margin-bottom: 20px;
-}
+#submit-div{
+    width: 100%;
+    overflow: hidden;
 
-.slider-val {
-    font-size: 35px;
-}
-
-.slider.slider-horizontal .slider-track {
-    margin-top: 20px !important;
-}
-
-.tooltip.top {
-    margin-top: -10px !important;
-}
-
-label {
-    margin-left: 10px;
-}
-
-#two-line-qn{
-    min-height: 290px;
-}
-
-.slider-container {
-    font-size: 20px;
-    max-width: 30%;
-    float: left;
-    text-align: center;
-    padding-right: 20px;
-    min-height: 160px;
-    border-right: 2px solid rgba(150,0,0,0.5);
-}
-
-.radio-container {
-    font-size: 20px;
-    max-width: 70%;
-    padding-left: 25px;
-    float: left;
-}
-
-.slider-handle {
-    background-color: #A32A37 !important;
-    background-image: none !important;
-}
-
-.slider-track-low, .slider-selection {
-    color: #2E040E !important;
-    background-color: #450614 !important;
-    background-image: none !important;
-}
-
-.slider-track-high {
-    background-color: dimgrey !important;
-    background-image: none !important;
 }
 
 #submit {
     margin-top: 50px;
     font-family: "Roboto Slab", sans-serif;
-    margin-left: 35%;
-    width: 30%;
+    margin-left: 0px;
+    min-width: 300px;
+    width: 100%;
     height: 100px;
     background-color: #A32A37;
     color: #fff;
@@ -128,6 +87,19 @@ label {
     border-right-color: darkred !important;
 }
 
+@media screen and (min-width: 800px) {
+    #submit{
+        max-width: 500px;
+        position: absolute;
+        left: 50%;
+        margin-left: -250px;
+    }
+
+    #submit-div {
+        height: 200px;
+        background: none;
+    }
+}
 #submit a {
     color: white;
     text-decoration: none;

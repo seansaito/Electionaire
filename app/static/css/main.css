@@ -3,18 +3,30 @@ body {
 }
 nav {
     margin-top: -50px !important;
+    width: 100%;
 }
 
 nav .container-fluid, .nav{
     font-family: "Roboto Slab", serif;
     font-size: 25px;
-    height: 60px;
     background-color: #A32A37;
+    padding-right: 10px;
 }
 
 nav a {
     color: rgba(255,255,255,0.5) !important;
+    margin-left: 10px;
+    background-color: #A32A37;
 }
+
+nav li:hover {
+    background-color: #A32A37;
+}
+
+.navbar-inverse .navbar-collapse {
+    margin-top: 2px;
+}
+
 
 nav a:hover {
     color: #fff !important;
@@ -28,6 +40,13 @@ nav .active a {
 
 nav a {
     padding-top: 20px !important;
+}
+.jumbotron {
+    font-family: "Droid Sans", sans-serif;
+    padding: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #ADBCC3;
 }
 .jumbotron {
     font-family: "Droid Sans", sans-serif;

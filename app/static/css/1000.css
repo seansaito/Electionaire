@@ -1,9 +1,20 @@
 body {
     background-color: #2D4255;
 }
+
+.container-fluid>.navbar-collapse {
+    margin-left: 0px;
+}
+.navbar-nav {
+    margin: 0px;
+}
+
 nav {
     margin-top: -50px !important;
+    width: 100%;
+
 }
+
 
 nav .container-fluid, .nav{
     font-family: "Roboto Slab", serif;
@@ -12,9 +23,13 @@ nav .container-fluid, .nav{
     padding-right: 10px;
 }
 
+.nav>li {
+    margin-left:-15px;
+}
+
 nav a {
     color: rgba(255,255,255,0.5) !important;
-    margin-left: 10px;
+    margin-left: 20px;
     background-color: #A32A37;
 }
 
@@ -47,6 +62,8 @@ nav a {
     padding-right: 30px;
     background-color: #ADBCC3;
 }
+
+
 
 h1 {
     font-family: "Roboto Slab", serif;
