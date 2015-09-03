@@ -58,10 +58,6 @@ def about():
 def contact():
     return render_template("contact.html")
 
-@app.route("/image")
-def image():
-    return send_file("static\\img\\logo.png")
-
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
