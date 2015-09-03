@@ -4,49 +4,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electionaire</title>
 
-  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
-  <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" media='screen and (min-width: 1001px)' href="/static/css/main.css">
-  <link rel="stylesheet" media='screen and (min-width: 500px) and (max-width: 1000px)' href="/static/css/1000.css">
+    <link rel='shortcut icon' href='/static/ico/favicon.ico' type='image/x-icon'/ >
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" media='screen and (min-width: 1001px)' href="/static/css/main.css">
+    <link rel="stylesheet" media='screen and (min-width: 500px) and (max-width: 1000px)' href="/static/css/1000.css">
+    <link rel="stylesheet" href="/static/css/splash.css">
+    <style>
+        html      { overflow-y: scroll; }
+        body      { padding-top:50px;}
+    </style>
+    <script src="/static/js/jquery-1.11.2.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
 
-  <style>
-    html      { overflow-y: scroll; }
-    body      { padding-top:50px;}
-  </style>
-  <script src="/static/js/jquery-1.11.2.min.js"></script>
-  <script src="/static/js/bootstrap.min.js"></script>
-
-  <link rel="stylesheet" href="css/bootstrap-slider.css">
-  <script src="/static/js/bootstrap-slider.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap-slider.css">
+    <script src="/static/js/bootstrap-slider.js"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-static">
-        <div class="container-fluid">
-            <!-- Brand and toggle get GROUPED for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Brand</a>
-            </div>
+  <nav class="navbar navbar-inverse navbar-fixed-static">
+      <div class="container-fluid">
+          <!-- Brand and toggle get GROUPED for better mobile display -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="{{ url_for('front')}}">Electionaire</a>
+          </div>
 
-            <!-- COLLECT the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{url_for('index')}}">SURVEY <span class="sr-only">(current)</span></a></li>
-                    <li><a href="{{url_for('about')}}">ABOUT</a></li>
-                    <li><a href="{{url_for('contact')}}">CONTACT</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+          <!-- COLLECT the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                  <li><a href="{{url_for('index')}}">SURVEY <span class="sr-only">(current)</span></a></li>
+                  <li><a href="{{url_for('about')}}">ABOUT</a></li>
+                  <li><a href="mailto:weijie.koh@yale-nus.edu.sg" target="_top">CONTACT</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a target="_blank" href="https://github.com/seansaito/Electionaire">VIEW SOURCE CODE  <span><i class="fa fa-github"></i></span></a></li>
+              </ul>
+          </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+  </nav>
     <div class="container">
 
         <div class="jumbotron">
