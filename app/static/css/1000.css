@@ -20,7 +20,7 @@ nav {
 
 nav .container-fluid, .nav{
     font-family: "Roboto Slab", serif;
-    font-size: 25px;
+    font-size: 20px;
     background-color: #A32A37;
     padding-right: 10px;
 }
@@ -159,7 +159,7 @@ label {
     background-color: #A32A37;
     color: #fff;
     border-radius: 10px;
-    font-size: 25px;
+    font-size: 20px;
     border-bottom-color: darkred !important;
     border-top-color: darkred !important;
     border-left-color: darkred !important;
@@ -254,14 +254,14 @@ label {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
-    font-size: 20px;
+    font-size: 15px;
 
 }
 
 #percentage {
     width: 15%;
     float: right;
-    font-size: 25px;
+    font-size: 20px;
     margin-right: 5%;
     margin-left: 0px;
     vertical-align: middle;
@@ -272,17 +272,24 @@ label {
     vertical-align:bottom;
 }
 
-p {
-    margin-left: 15px;
+#about-us > p {
+    margin-left: 0px;
+    font-size: 15px;
+    text-align: justify;
 }
 
-li {
-    font-size: 21px !important;
+#about-us > h2 {
+    margin-left: 0px;
+}
+
+#about-us > li {
+    font-size: 15px;
 }
 
 
 #eqn {
     text-align: center;
+    font-family: serif;
 }
 
 #share-results {

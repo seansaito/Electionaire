@@ -69,11 +69,7 @@ class CandidateMatcher():
                 """
                 if candidate_answer != "":
                     deviation[candidate]["act_difference"] += int(importance) * abs(candidate_answer - int(user_choice))
-                    if isinstance(candidate_answer, float):
-                        # deviation[candidate]["max_deviation"] += abs((4 - candidate_answer) - (candidate_answer - 0)) * int(importance)
-                        deviation[candidate]["max_deviation"] += max((4 - candidate_answer), (candidate_answer - 0)) * int(importance)
-                    else:
-                        deviation[candidate]["max_deviation"] += max((4 - candidate_answer), (candidate_answer - 0)) * int(importance)
+                    deviation[candidate]["max_deviation"] += max((4 - candidate_answer), (candidate_answer - 0)) * int(importance)
                 else:
                     deviation[candidate]["act_difference"] += abs(2 - int(user_choice)) * int(importance)
                     deviation[candidate]["max_deviation"] += 2 * int(importance)
