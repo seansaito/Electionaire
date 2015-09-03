@@ -87,7 +87,18 @@ h1 {
     border-right-color: darkred !important;
 }
 
+@media screen and (max-width:799px) {
+    h1{
+        font-size: 35px;
+    }
+
+    #submit {
+        font-size: 25px;
+    }
+}
+
 @media screen and (min-width: 800px) {
+
     #submit{
         max-width: 500px;
         position: absolute;

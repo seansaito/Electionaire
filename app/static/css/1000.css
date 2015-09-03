@@ -1,5 +1,7 @@
 body {
     background-color: #2D4255;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .container-fluid>.navbar-collapse {
@@ -57,30 +59,42 @@ nav a {
 }
 .jumbotron {
     font-family: "Droid Sans", sans-serif;
-    padding: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
     background-color: #ADBCC3;
+    width: 100%;
 }
 
 
 
 h1 {
     font-family: "Roboto Slab", serif;
+
 }
 h2 {
     margin: 15px;
     font-family: "Roboto Slab", serif;
+    font-size: 20px;
 }
 
 .question {
     min-width: 100%;
-    min-height: 500px;
+    min-height: 300px;
     background-color: #EFFBFF;
     padding: 20px;
     padding-top: 5px;
     border-radius: 25px;
     margin-bottom: 20px;
+}
+
+.question > h2 {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.question > .container {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .slider-val {
@@ -99,6 +113,7 @@ label {
     margin-left: 10px;
     width: 90%;
     vertical-align: middle;
+    font-size: 15px;
 }
 
 
@@ -165,13 +180,9 @@ label {
         font-size: 20px;
         width: 100%;
         padding-top: 20px;
-        padding-left: 25px;
         float: left;
     }
 
-#two-line-qn{
-    min-height: 550px;
-}
 
 #about-us {
     min-width: 100%;
@@ -272,4 +283,9 @@ li {
 
 #eqn {
     text-align: center;
+}
+
+#share-results {
+    margin-right: 0px;
+    text-align: right;
 }

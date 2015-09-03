@@ -243,3 +243,8 @@ li {
 #eqn {
     text-align: center;
 }
+
+#share-results {
+    margin-right: 0px;
+    text-align: right;
+}

@@ -76,14 +76,13 @@
 
       <h1 id="match-text">Your matches
       </h1>
-      <h2>Share your results:
+      <h2 id="share-results">Share your results:</h2>
         <span>
           <div class="fb-share-button"
                data-href="http://www.electionaire.info/{{rankings[0]['name']}}/{{ '%.2f' | format(rankings[0]['deviation'])}}/{{rankings[1]['name']}}/{{ '%.2f' | format(rankings[1]['deviation'])}}/{{rankings[2]['name']}}/{{ '%.2f' | format(rankings[2]['deviation'])}}"
                data-layout="button">
           </div>
         </span>
-      </h2>
       </div>
     <br>
     {% set counter = 1 %}
