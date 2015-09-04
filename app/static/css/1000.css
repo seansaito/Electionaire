@@ -296,3 +296,8 @@ label {
     margin-right: 0px;
     text-align: right;
 }
+
+#graphs > img {
+    min-width: 100%;
+}
+
