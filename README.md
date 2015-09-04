@@ -27,8 +27,9 @@ Electionaire matches are merely estimates. We compare your opinions to the perce
 
 Your answers, which correspond to the same 0-4 scale, are then compared with the parties’ average ratings. The degree of difference between your answers and the parties’ average ratings is then weighted according to the degree of importance you indicated for each question. This deviation is then coerced into a percentage. The exact algorithm is as follows:
 
-total deviation =question 1question 15(weight of each question as set by user) * |party_value- user’s_value|
-final percentage = 100- total deviation/(max possible total deviation - min possible total deviation)
+Total Deviation = Sum of (weight of each question as set by user) * (party value - user's value) for questions 1 to 15
+
+Final Percentage = 100 - total deviation/(max possible total deviation - min possible deviation)
 
 # About Us
 Electionaire was created by a group of third-year students at Yale-NUS College. It is not supported, funded or aligned with any political party. Some of us are first-time voters who struggled to find an online resource that collated all parties’ policy stances.
