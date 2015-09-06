@@ -30,19 +30,23 @@ def index():
         now = "-".join(datetime.datetime.strftime(datetime.datetime.now(), "%Y, %m, %d, %H, %M, %S").split(", "))
         pckg = [now] + answers + percentages
 
-        print pckg
-
-        print "Recording answer"
-        recorder = CSVRecorder()
-        recorder.record_answer(pckg)
-        print "Recording done"
+        try:
+            print "Recording answer"
+            recorder = CSVRecorder()
+            recorder.record_answer(pckg)
+            print "Recording done"
+        except:
+            print "Failed to record"
 
         print "=============================="
 
-        print "Uploading"
-        connector = S3Connector()
-        connector.upload()
-        print "Upload done"
+        try:
+            print "Uploading"
+            connector = S3Connector()
+            connector.upload()
+            print "Upload done"
+        except:
+            print "Failed to upload"
 
         return render_template("answer.html", deviation_rankings=deviation_rankings)
     else:

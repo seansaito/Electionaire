@@ -4,6 +4,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electionaire</title>
 
+  <meta property="og:url"           content="http://www.electionaire.info/about" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="About - Electionaire" />
+  <meta property="og:description"   content="Read our methodology on how we constructed this survey." />
+  <meta property="og:image"         content="https://electionaire.s3.amazonaws.com/flag.svg" />
+
   <link rel='shortcut icon' href='/static/ico/favicon.ico' type='image/x-icon'/ >
   <link rel="stylesheet" href="/static/css/bootstrap.css">
   <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
@@ -59,9 +65,10 @@
 
             <div id="about-us">
                 <p>
-                    Electionaire was created by a group of third-year students at Yale-NUS College. It is not supported, funded or aligned with any political party. Some of us are first-time voters who struggled to find an online resource that collated all parties’ policy stances.
+                    Electionaire was created by a group of third-year students at Yale-NUS College. It is not supported, funded or aligned with any political party.
 
                 </p>
+                <p>Like our <a href="https://www.facebook.com/electionaire">Facebook page!</a></p>
                 <br>
                 <h2>The Team</h2>
                 <ul>
@@ -89,7 +96,7 @@
 
                 <h2>Electionaire tries to be objective.</h2>
                 <p>
-                    The team carefully examined party manifestos and public statements. Volunteers from a diverse set of backgrounds and political leanings scored each party’s policies. The algorithm used to calculate the matches between your opinions and the parties’ policies is available <a target="_blank" href="https://github.com/seansaito/Electionaire">here</a>.
+                    The team carefully examined party manifestos and public statements. When choosing issues to highlight, we also considered how many parties care about them. Volunteers from a diverse set of backgrounds and political leanings scored each party’s policies. We do not claim to perfectly represent each party’s positions. The algorithm used to calculate the matches between your opinions and the parties’ policies is available <a target="_blank" href="https://github.com/seansaito/Electionaire">here</a>.
 
                 </p>
                 <br>
@@ -97,6 +104,9 @@
                 <p>
                     Electionaire matches are merely estimates. We compare your opinions to the perceived stances of the ten parties as gathered by the research team. The research process was conducted as follows: </p>
                     <ul>
+                        <li>
+                            The research team formulated a list of questions that highlight election issues multiple political parties have made public statements on.
+                        </li>
                         <li>
                             The research team examined manifestos and public statements by the political parties to create a set of fifteen issues that were central to the 2015 General Election.
 
@@ -119,7 +129,7 @@
                        <br>
                        <br>
                        <i id="eqn">
-                           Final Percentage = 100 - total deviation/(max possible total deviation - min possible deviation)
+                           final percentage = 100 - total deviation/(max possible total deviation - min possible deviation)
                        </i>
 
                    </div>
