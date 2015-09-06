@@ -77,7 +77,7 @@ class CandidateMatcher():
 
         for candidate in deviation.keys():
             try:
-                deviation[candidate]["percentage"] = deviation[candidate]["act_difference"] / deviation[candidate]["max_deviation"] * 100
+                deviation[candidate]["percentage"] = deviation[candidate]["act_difference"] * 100.0 / deviation[candidate]["max_deviation"]
             except ZeroDivisionError: # This happens when the user answers zero questions
                 deviation[candidate]["percentage"] = 100.0
 
