@@ -1,0 +1,449 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electionaire</title>
+
+  <meta property="og:url"           content="http://www.electionaire.info/survey" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Electionaire" />
+  <meta property="og:description"   content="Take the survey to find out which party thinks like you." />
+  <meta property="og:image"         content="https://electionaire.s3.amazonaws.com/flag.svg" />
+
+  <link rel='shortcut icon' href='/static/ico/favicon.ico' type='image/x-icon'/ >
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" media='screen and (min-width: 1001px)' href="/static/css/main.css">
+  <link rel="stylesheet" media='screen and (max-width: 1000px)' href="/static/css/1000.css">
+
+  <style>
+    html      { overflow-y: scroll; }
+    body      { padding-top:50px;}
+  </style>
+  <script src="/static/js/jquery-1.11.2.min.js"></script>
+  <script src="/static/js/bootstrap.js"></script>
+
+  <link rel="stylesheet" href="/static/css/bootstrap-slider.css">
+  <script src="/static/js/bootstrap-slider.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-static">
+        <div class="container-fluid">
+            <!-- Brand and toggle get GROUPED for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('front')}}">Electionaire</a>
+            </div>
+
+            <!-- COLLECT the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{url_for('survey_ch')}}">调查 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="{{url_for('about_ch')}}">关于我们</a></li>
+                    <li><a href="mailto:weijie.koh@yale-nus.edu.sg" target="_top">联络</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a target="_blank" href="https://github.com/seansaito/Electionaire">参看源代码  <span><i class="fa fa-github"></i></span></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+
+        <div class="jumbotron">
+            <h2>参与调查，找出与你意见相符的政党</h2>
+
+
+            <form method="POST" action="{{url_for('survey_ch')}}">
+                <div class="question">
+                    <h2>新加坡应该先处理收入不平衡，才追求经济发展。</h2>
+                    <div class="container">
+                        <div class="slider-container">
+                            <div class="slider slider-horizontal">
+                                <span id="ex1CurrentSliderValLabel">这个议题对你重不重要?  </br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex1SliderVal">3</span>
+                            <input id="ex1" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="1"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="1" value="4"><label for="r1"> 同意。</label><br>
+                        <input id="r2" type="radio" name="1" value="3"><label for="r2">同意，新加坡能夠犧牲一點經濟發展來建設一個更平衡的社會。</label><br>
+                        <input id="r3" type="radio" name="1" value="2"><label for="r3"> 沒意見。</label><br>
+                        <input id="r4" type="radio" name="1" value="1"><label for="r4">不同意，因为整体经济发展是帮助低收入人民的最好的政策。</label><br>
+                        <input id="r5" type="radio" name="1" value="0"><label for="r5"> 不同意。</label><br>
+                    </div>
+                    </div>
+
+                </div>
+
+                <div class="question" id="two-line-qn">
+                    <h2>新加坡应该为低技术移徙工人提供较少的工作签证。</h2>
+                    <div class="container">
+                        <div class="slider-container">
+                            <div class="slider slider-horizontal">
+                                <span id="ex2CurrentSliderValLabel">这个议题对你重不重要?  </br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex2SliderVal">3</span>
+                            <input id="ex2" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="2"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="l1" type="radio" name="2" value="4"><label for="l1"> 同意。</label><br>
+                        <input id="l2" type="radio" name="2" value="3"><label for="l2">同意。新加坡应该只在过度依靠外劳的行业減少工作签证。其他行業能夠據懸案正常。</label><br>
+                        <input id="l3" type="radio" name="2" value="2"><label for="l3"> 沒意見。</label><br>
+                        <input id="l4" type="radio" name="2" value="1"><label for="l4"> 不同意。政府应该在新加坡人不想加入的行业而已提供更多工作签证。</label><br>
+                        <input id="l5" type="radio" name="2" value="0"><label for="l5"> 不同意。</label><br>
+                    </div>
+                    </div>
+
+                </div>
+
+
+                <div class="question" id="two-line-qn">
+                  <h2>新加坡应该为较少的国外技术工人提供永久居民权。</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex3CurrentSliderValLabel">这个议题对你重不重要?  </br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex3SliderVal">3</span>
+                            <input id="ex3" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="3"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="q1" type="radio" name="3" value="4"><label for="q1"> 同意。</label><br>
+                        <input id="q2" type="radio" name="3" value="3"><label for="q2"> 同意，但新加坡应该试图避免人口减少的现象。</label><br>
+                        <input id="q3" type="radio" name="3" value="2"><label for="q3"> 沒意見。</label><br>
+                        <input id="q4" type="radio" name="3" value="1"><label for="q4"> 不同意，直到新加坡出生率提高为止。</label><br>
+                        <input id="q5" type="radio" name="3" value="0"><label for="q5"> 不同意。</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>公司机构应该在聘请外地人之前，必须先试图聘请新加坡人。 </h2>
+
+                       <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex4CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex4SliderVal">3</span>
+                            <input id="ex4" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="4"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="w1" type="radio" name="4" value="4"><label for="w1"> 同意。</label><br>
+                        <input id="w2" type="radio" name="4" value="3"><label for="w2"> 同意，但此政策应该只限专业人士、 经理、 主管和技术人员的职位。</label><br>
+                        <input id="w3" type="radio" name="4" value="2"><label for="w3"> 沒意見。</label><br>
+                        <input id="w4" type="radio" name="4" value="1"><label for="w4"> 不同意，但公司在聘请外地人之前，应该先向新加坡人招聘两个星期。</label><br>
+                        <input id="w5" type="radio" name="4" value="0"><label for="w5"> 不同意。</label><br>
+                    </div>
+                       </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>新加坡应该废除以同性恋行为为罪的377A号刑事法规。</h2>
+                   <div class="container">
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex5CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex5SliderVal">3</span>
+                            <input id="ex5" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="5"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="e1" type="radio" name="5" value="4"><label for="e1"> 同意。</label><br>
+                        <input id="e2" type="radio" name="5" value="3"><label for="e2"> 如果大部分的人支持的话才同意。 </label><br>
+                        <input id="e3" type="radio" name="5" value="2"><label for="e3"> 沒意見。</label><br>
+                        <input id="e4" type="radio" name="5" value="1"><label for="e4"> 不同意，但不应该执行此法规。 </label><br>
+                        <input id="e5" type="radio" name="5" value="0"><label for="e5"> 不同意。</label><br>
+                    </div>
+
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>新加坡应该提高民权 （例如：言论自由，集会自由等）。</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex6CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex6SliderVal">3</span>
+                            <input id="ex6" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="6"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="t1" type="radio" name="6" value="4"><label for="t1"> 同意。</label><br>
+                        <input id="t2" type="radio" name="6" value="3"><label for="t2"> 同意，但社会团结应该總是优先。</label><br>
+                        <input id="t3" type="radio" name="6" value="2"><label for="t3"> 沒意見。</label><br>
+                        <input id="t4" type="radio" name="6" value="1"><label for="t4"> 不同意，但犯此规的惩罚应该保持在最低限度。</label><br>
+                        <input id="t5" type="radio" name="6" value="0"><label for="t5"> 不同意。</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>新加坡应该废除在教育中按学生成绩而分班的政策。</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex7CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex7SliderVal">3</span>
+                            <input id="ex7" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="7"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="y1" type="radio" name="7" value="4"><label for="y1"> 同意。</label><br>
+                        <input id="y2" type="radio" name="7" value="3"><label for="y2"> 同意，但得先實施替代政策才推行。 </label><br>
+                        <input id="y3" type="radio" name="7" value="2"><label for="y3"> 沒意見。</label><br>
+                        <input id="y4" type="radio" name="7" value="1"><label for="y4"> 不同意，但在小学六年级按成绩分班是實在太早。</label><br>
+                        <input id="y5" type="radio" name="7" value="0"><label for="y5"> 不同意。</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>新加坡人应该调低领出公积金的最低年龄。</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex8CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex8SliderVal">3</span>
+                            <input id="ex8" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="8"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="u1" type="radio" name="8" value="4"><label for="u1"> 同意。</label><br>
+                        <input id="u2" type="radio" name="8" value="3"><label for="u2"> 同意，但只限于那些得到政府的保證</label><br>
+                        <input id="u3" type="radio" name="8" value="2"><label for="u3"> 沒意見。</label><br>
+                        <input id="u4" type="radio" name="8" value="1"><label for="u4"> 不同意，但可以领出公积金的最低年龄不应该大过65岁。</label><br>
+                        <input id="u5" type="radio" name="8" value="0"><label for="u5"> 不同意。</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>新加坡人一到领公积金的最低年龄就应该能够自由存取公积金。</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex9CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex9SliderVal">3</span>
+                            <input id="ex9" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="9"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="i1" type="radio" name="9" value="4"><label for="i1"> 同意。</label><br>
+                        <input id="i2" type="radio" name="9" value="3"><label for="i2"> 同意。取公积金限制应该有大型的放松，但不应该废除限制。 </label><br>
+                        <input id="i3" type="radio" name="9" value="2"><label for="i3"> 沒意見。</label><br>
+                        <input id="i4" type="radio" name="9" value="1"><label for="i4"> 不同意。取公积金限制应该只有稍微的放松。完全的自由存取会导致管理不善。 </label><br>
+                        <input id="i5" type="radio" name="9" value="0"><label for="i5"> 不同意。</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>政府应该增加医疗开支。</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex10CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex10SliderVal">3</span>
+                            <input id="ex10" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="10"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="s1" type="radio" name="10" value="4"><label for="s1"> 同意。</label><br>
+                        <input id="s2" type="radio" name="10" value="3"><label for="s2"> 同意，可是税率不应该有大型的增加。</label><br>
+                        <input id="s3" type="radio" name="10" value="2"><label for="s3"> 沒意見。</label><br>
+                        <input id="s4" type="radio" name="10" value="1"><label for="s4"> 不同意，可是Medishield应该有改善。</label><br>
+                        <input id="s5" type="radio" name="10" value="0"><label for="s5"> 不同意。</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2> 政府应该增加福利开支。</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex11CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex11SliderVal">3</span>
+                            <input id="ex11" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="11"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="d1" type="radio" name="11" value="4"><label for="d1"> 同意。</label><br>
+                        <input id="d2" type="radio" name="11" value="3"><label for="d2"> 同意，但政府应该鼓励人民独立，自力更生。</label><br>
+                        <input id="d3" type="radio" name="11" value="2"><label for="d3"> 沒意見。</label><br>
+                        <input id="d4" type="radio" name="11" value="1"><label for="d4"> 不同意，但应该增加给于慈善机构的财政支持。</label><br>
+                        <input id="d5" type="radio" name="11" value="0"><label for="d5"> 不同意。</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>政府应该增加高收入者的所得税率。</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex12CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex12SliderVal">3</span>
+                            <input id="ex12" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="12"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="f1" type="radio" name="12" value="4"><label for="f1"> 同意。</label><br>
+                        <input id="f2" type="radio" name="12" value="3"><label for="f2"> 同意，但新加坡的所得税率不应该高过其他国家的所得税率。</label><br>
+                        <input id="f3" type="radio" name="12" value="2"><label for="f3"> 沒意見。</label><br>
+                        <input id="f4" type="radio" name="12" value="1"><label for="f4"> 不同意，但应该以其他方式增加高收入者的税率。</label><br>
+                        <input id="f5" type="radio" name="12" value="0"><label for="f5"> 不同意。</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>新加坡应该有法定最低工资。</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex13CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex13SliderVal">3</span>
+                            <input id="ex13" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="13"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="g1" type="radio" name="13" value="4"><label for="g1"> 同意。</label><br>
+                        <input id="g2" type="radio" name="13" value="3"><label for="g2"> 同意，但此政策应该只限一些行业。</label><br>
+                        <input id="g3" type="radio" name="13" value="2"><label for="g3"> 沒意見。</label><br>
+                        <input id="g4" type="radio" name="13" value="1"><label for="g4"> 不同意，但政府应该充值低收入人民的工资。</label><br>
+                        <input id="g5" type="radio" name="13" value="0"><label for="g5"> 不同意。</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2> 政府应该保持政府组屋种族配额。</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex14CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex14SliderVal">3</span>
+                            <input id="ex14" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="14"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="h1" type="radio" name="14" value="4"><label for="h1"> 同意。</label><br>
+                        <input id="h2" type="radio" name="14" value="3"><label for="h2"> 同意，但应该让配额更加灵活，有弹性。</label><br>
+                        <input id="h3" type="radio" name="14" value="2"><label for="h3"> 沒意見。</label><br>
+                        <input id="h4" type="radio" name="14" value="1"><label for="h4"> 不同意，但若有了民族飞地的出现，应该有政府干涉。</label><br>
+                        <input id="h5" type="radio" name="14" value="0"><label for="h5"> 不同意。</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>部长年薪应该大型减少。</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex15CurrentSliderValLabel">这个议题对你重不重要?  <br> <span style="font-size: 0.7em;">(1-不重要, 5-非常重要)</span> </span><br>
+                            <span class="slider-val" id="ex15SliderVal">3</span>
+                            <input id="ex15" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="15"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="z1" type="radio" name="15" value="4"><label for="z1"> 同意。</label><br>
+                        <input id="z2" type="radio" name="15" value="3"><label for="z2"> 同意，但应该还是基准私营部门的年薪。</label><br>
+                        <input id="z3" type="radio" name="15" value="2"><label for="z3"> 沒意見。</label><br>
+                        <input id="z4" type="radio" name="15" value="1"><label for="z4"> 不同意，但应该还是明显的比普通人民年薪高。</label><br>
+                        <input id="z5" type="radio" name="15" value="0"><label for="z5"> 不同意。</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <button id="submit" type="submit">确认</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+          {% for question in questions %}
+
+          $("#ex" + {{question|safe}}).slider();
+          $("#ex" + {{question|safe}}).on("slide", function(slideEvt) {
+            $("#ex" + {{question|safe}} + "SliderVal").text(slideEvt.value);
+          });
+            {% endfor %}
+
+        });
+
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-67150391-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+</body>
+</html>

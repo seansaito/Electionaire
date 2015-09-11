@@ -1,0 +1,173 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electionaire</title>
+
+  <meta property="og:url"           content="http://www.electionaire.info/about" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="About - Electionaire" />
+  <meta property="og:description"   content="Read our methodology on how we constructed this survey." />
+  <meta property="og:image"         content="https://electionaire.s3.amazonaws.com/flag.svg" />
+
+  <link rel='shortcut icon' href='/static/ico/favicon.ico' type='image/x-icon'/ >
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" media='screen and (min-width: 1001px)' href="/static/css/main.css">
+  <link rel="stylesheet" media='screen and (max-width: 1000px)' href="/static/css/1000.css">
+
+  <style>
+    html      { overflow-y: scroll; }
+    body      { padding-top:50px;}
+  </style>
+  <script src="/static/js/jquery-1.11.2.min.js"></script>
+  <script src="/static/js/bootstrap.js"></script>
+
+  <link rel="stylesheet" href="css/bootstrap-slider.css">
+  <script src="/static/js/bootstrap-slider.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-static">
+        <div class="container-fluid">
+            <!-- Electionaire and toggle get GROUPED for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('front')}}">Electionaire</a>
+            </div>
+
+            <!-- COLLECT the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{url_for('survey_tm')}}">ஆய்வு</a></li>
+                    <li class="active"><a href="{{url_for('about_tm')}}">ஆய்வு பற்றி</a></li>
+                    <li><a href="mailto:weijie.koh@yale-nus.edu.sg" target="_top">தொடர்புக் கொள்ள</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a target="_blank" href="https://github.com/seansaito/Electionaire">பார்வை மூல குறியீடு  <span><i class="fa fa-github"></i></span></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1>ABOUT US</h1>
+
+            <div id="about-us">
+                <p>
+                    Electionaire was created by a group of third-year students at Yale-NUS College. It is not supported, funded or aligned with any political party.
+
+                </p>
+                <p>Like our <a href="https://www.facebook.com/electionaire">Facebook page!</a></p>
+                <br>
+                <h2>The Team</h2>
+                <ul>
+                    <li>Koh Wei Jie</li>
+                    <li>Maggie Schumann</li>
+                    <li>Parag Bhatnagar</li>
+                    <li>Rohan Naidu</li>
+                    <li>Sean Saito</li>
+                </ul>
+                <br>
+                <br>
+                <h2>ABOUT THE SURVEY</h2>
+                <br>
+                <h2>Electionaire is not a poll.</h2>
+                <p>
+                    The site does not ask who you plan to vote for. Electionaire compares your opinions on the issues of GE2015 with the policies of Singapore’s 10 political parties, then measures how much you agree with each of them.
+                </p>
+                 <br>
+
+                <h2>Electionaire is anonymous.</h2>
+                <p>
+                    The site does not ask for identifying information, log IP addresses or store cookies. Only you know your responses.
+                </p>
+                <br>
+
+                <h2>Electionaire tries to be objective.</h2>
+                <p>
+                    The team carefully examined party manifestos and public statements. When choosing issues to highlight, we also considered how many parties care about them. Volunteers from a diverse set of backgrounds and political leanings scored each party’s policies. We do not claim to perfectly represent each party’s positions. The algorithm used to calculate the matches between your opinions and the parties’ policies is available <a target="_blank" href="https://github.com/seansaito/Electionaire">here</a>.
+
+                </p>
+                <br>
+                <h2>Methodology</h2>
+                <p>
+                    Electionaire matches are merely estimates. We compare your opinions to the perceived stances of the ten parties as gathered by the research team. The research process was conducted as follows: </p>
+                    <ul>
+                        <li>
+                            The research team formulated a list of questions that highlight election issues multiple political parties have made public statements on.
+                        </li>
+                        <li>
+                            The research team examined manifestos and public statements by the political parties to create a set of fifteen issues that were central to the 2015 General Election.
+
+                        </li>
+                        <li>
+                            The research team then collected quotes from each party on each issue. If a clear stance was not explicitly available, the team tried to find a quote on a related topic. If the team could not find a related quote, the team marked the stance as “No mention”. See the spreadsheet <a target="_blank" href="https://docs.google.com/spreadsheets/d/1yOqqxOdEF4vVeGnhlMlJXPVSOU_1Iof44XiB6O_T53Q/edit?usp=sharing">here</a>.
+
+                        </li>
+                        <li>
+                            Multiple raters of varied backgrounds and political leanings used the spreadsheet to score the parties on a scale of 0-4 for their agreement with each question. 0 stood for no, 1 for qualified no, 2 for neutral, 3 for qualified yes, and 4 for yes. See the averaged ratings <a target="_blank" href="https://docs.google.com/spreadsheets/d/1GZdSzXNlJh9Xq7zuv0dSfLtOtVaXWtC93wLk_CjlJlI/edit?usp=sharing">here</a> .
+                        </li>
+                    </ul>
+                    <p>
+                        Your answers, which correspond to the same 0-4 scale, are then compared with the parties’ average ratings. The degree of difference between your answers and the parties’ average ratings is then weighted according to the degree of importance you indicated for each question. This deviation is then calculated into a percentage. The exact algorithm is as follows:
+                </p>
+<br>
+                  <br>
+                   <div id="eqn">
+                       <i id="eqn">Total Deviation = Sum of (weight of each question as set by user) * (party value - user's value) for questions 1 to 15 </i>
+                       <br>
+                       <br>
+                       <i id="eqn">
+                           final percentage = 100 - total deviation/(max possible total deviation - min possible deviation)
+                       </i>
+
+                   </div>
+
+                    <br>
+            <div id="graphs">
+                <img src="/static/img/graphs/q_1.png">
+                <img src="/static/img/graphs/q_2.png">
+                <img src="/static/img/graphs/q_3.png">
+                <img src="/static/img/graphs/q_4.png">
+                <img src="/static/img/graphs/q_5.png">
+                <img src="/static/img/graphs/q_6.png">
+                <img src="/static/img/graphs/q_7.png">
+                <img src="/static/img/graphs/q_8.png">
+                <img src="/static/img/graphs/q_9.png">
+                <img src="/static/img/graphs/q_10.png">
+                <img src="/static/img/graphs/q_11.png">
+                <img src="/static/img/graphs/q_12.png">
+                <img src="/static/img/graphs/q_13.png">
+                <img src="/static/img/graphs/q_14.png">
+                <img src="/static/img/graphs/q_15.png">
+            </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67150391-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

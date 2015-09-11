@@ -1,0 +1,449 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electionaire</title>
+
+  <meta property="og:url"           content="http://www.electionaire.info/survey" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Electionaire" />
+  <meta property="og:description"   content="Take the survey to find out which party thinks like you." />
+  <meta property="og:image"         content="https://electionaire.s3.amazonaws.com/flag.svg" />
+
+  <link rel='shortcut icon' href='/static/ico/favicon.ico' type='image/x-icon'/ >
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" media='screen and (min-width: 1001px)' href="/static/css/main.css">
+  <link rel="stylesheet" media='screen and (max-width: 1000px)' href="/static/css/1000.css">
+
+  <style>
+    html      { overflow-y: scroll; }
+    body      { padding-top:50px;}
+  </style>
+  <script src="/static/js/jquery-1.11.2.min.js"></script>
+  <script src="/static/js/bootstrap.js"></script>
+
+  <link rel="stylesheet" href="/static/css/bootstrap-slider.css">
+  <script src="/static/js/bootstrap-slider.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-static">
+        <div class="container-fluid">
+            <!-- Brand and toggle get GROUPED for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('front')}}">Electionaire</a>
+            </div>
+
+            <!-- COLLECT the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{url_for('survey_ma')}}">TINJAUAN<span class="sr-only">(current)</span></a></li>
+                    <li><a href="{{url_for('about_ma')}}">TENTANG</a></li>
+                    <li><a href="mailto:weijie.koh@yale-nus.edu.sg" target="_top">HUBUNGAN</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a target="_blank" href="https://github.com/seansaito/Electionaire">LIHAT KOD SUMBER  <span><i class="fa fa-github"></i></span></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+
+        <div class="jumbotron">
+            <h2>Ambil tinjauan ini untuk mengetahui parti mana yang pandangan anda bersekutu dengan.</h2>
+
+
+            <form method="POST" action="{{url_for('survey_ma')}}">
+                <div class="question">
+                    <h2>Singapura patut menyelesaikan isu jurang tangga gaji sebelum mencari cara-cara untuk pertumbuhan ekonomi.</h2>
+                    <div class="container">
+                        <div class="slider-container">
+                            <div class="slider slider-horizontal">
+                                <span id="ex1CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? </br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex1SliderVal">3</span>
+                            <input id="ex1" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="1"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="1" value="4"><label for="r1"> Ya.</label><br>
+                        <input id="r2" type="radio" name="1" value="3"><label for="r2"> Ya, Singapura mampu memperlahankan pertumbuhan ekonomi supaya membetulkan perbezaan dalam pendapatan.</label><br>
+                        <input id="r3" type="radio" name="1" value="2"><label for="r3"> Neutral.</label><br>
+                        <input id="r4" type="radio" name="1" value="1"><label for="r4"> Tidak, kerana kemajuan ekonomi ialah cara terbaik untuk membantu orang miskin.</label><br>
+                        <input id="r5" type="radio" name="1" value="0"><label for="r5"> Tidak.</label><br>
+                    </div>
+                    </div>
+
+                </div>
+
+                <div class="question" id="two-line-qn">
+                    <h2>Singapura patut mengurangkan jumlah visa yang diberi kepada pekerja asing yang kebolehan rendah.</h2>
+                    <div class="container">
+                        <div class="slider-container">
+                            <div class="slider slider-horizontal">
+                                <span id="ex2CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? </br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex2SliderVal">3</span>
+                            <input id="ex2" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="2"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="l1" type="radio" name="2" value="4"><label for="l1"> Ya.</label><br>
+                        <input id="l2" type="radio" name="2" value="3"><label for="l2"> Ya, Singapura patut mengurangkan jumlah visa yang dianugerahkan kepada industri-industri yang terlalu bergantung kepada pekerja asing. Industri-industri lain tidak ada masalah.</label><br>
+                        <input id="l3" type="radio" name="2" value="2"><label for="l3"> Neutral.</label><br>
+                        <input id="l4" type="radio" name="2" value="1"><label for="l4"> Tidak, tetapi jumlah visa hanya patut ditingkatkan dalam industri-industri yang warga Singapura tidak ingin bekerja dalam.</label><br>
+                        <input id="l5" type="radio" name="2" value="0"><label for="l5"> Tidak.</label><br>
+                    </div>
+                    </div>
+
+                </div>
+
+
+                <div class="question" id="two-line-qn">
+                  <h2>Singapura patut mengurangkan pemberian taraf Penduduk Tetap (PR) kepada warga asing yang berkemahiran tinngi.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex3CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? </br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex3SliderVal">3</span>
+                            <input id="ex3" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="3"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="q1" type="radio" name="3" value="4"><label for="q1"> Ya.</label><br>
+                        <input id="q2" type="radio" name="3" value="3"><label for="q2"> Ya, tetapi Singapura patut mengelakkan pengurangan bilangan penduduk.</label><br>
+                        <input id="q3" type="radio" name="3" value="2"><label for="q3"> Neutral.</label><br>
+                        <input id="q4" type="radio" name="3" value="1"><label for="q4"> Tidak, sehingga kadar kelahiran meningkat.</label><br>
+                        <input id="q5" type="radio" name="3" value="0"><label for="q5"> Tidak.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Syarikat and organisasi patut diamanahkan untuk mencari warga Singapura dulu sebelum mengupah warga asing. </h2>
+
+                       <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex4CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex4SliderVal">3</span>
+                            <input id="ex4" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="4"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="w1" type="radio" name="4" value="4"><label for="w1"> Ya.</label><br>
+                        <input id="w2" type="radio" name="4" value="3"><label for="w2"> Ya, tetapi polisi ini hanya patut difokus kepada posisi-posisi PMET positions.</label><br>
+                        <input id="w3" type="radio" name="4" value="2"><label for="w3"> Neutral.</label><br>
+                        <input id="w4" type="radio" name="4" value="1"><label for="w4"> Tidak, tetapi syarikat-syarikat perlu mengeterakan iklan pengupahan selama dua minggu kepada warga Singapura sahaja sebelum mengupah warga asing.</label><br>
+                        <input id="w5" type="radio" name="4" value="0"><label for="w5"> Tidak.</label><br>
+                    </div>
+                       </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Singapura patut memansuhkan Akta 377A, undang-undang yang melarang seks antara lelaki.</h2>
+                   <div class="container">
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex5CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex5SliderVal">3</span>
+                            <input id="ex5" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="5"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="e1" type="radio" name="5" value="4"><label for="e1"> Ya.</label><br>
+                        <input id="e2" type="radio" name="5" value="3"><label for="e2"> Ya, tetapi hanya jika kebanyakkan orang menyokongnya. </label><br>
+                        <input id="e3" type="radio" name="5" value="2"><label for="e3"> Neutral.</label><br>
+                        <input id="e4" type="radio" name="5" value="1"><label for="e4"> Tidak, tetapi ia tidak patut dikuatkuasakan. </label><br>
+                        <input id="e5" type="radio" name="5" value="0"><label for="e5"> Tidak.</label><br>
+                    </div>
+
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Singapura patut mengembangkan hak-hak kebebasan asasi (kebebasan bersuara, kebebasan berkumpul, dan lain-lain).</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex6CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex6SliderVal">3</span>
+                            <input id="ex6" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="6"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="t1" type="radio" name="6" value="4"><label for="t1"> Ya.</label><br>
+                        <input id="t2" type="radio" name="6" value="3"><label for="t2"> Ya, tetapi kepentingan harus diberi kepada pemuliharaan kesejahteraan masyarakat.</label><br>
+                        <input id="t3" type="radio" name="6" value="2"><label for="t3"> Neutral.</label><br>
+                        <input id="t4" type="radio" name="6" value="1"><label for="t4"> Tidak, tetapi hukuman untuk pelanggaran undang-undang ini harus diringankan.</label><br>
+                        <input id="t5" type="radio" name="6" value="0"><label for="t5"> Tidak.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Singapura harus menghapuskan aliran persekolahan (contohnya Expres, Normal, dan lain-lain).</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex7CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex7SliderVal">3</span>
+                            <input id="ex7" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="7"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="y1" type="radio" name="7" value="4"><label for="y1"> Ya.</label><br>
+                        <input id="y2" type="radio" name="7" value="3"><label for="y2">Ya, tetapi tidak sehingga cara lain ditemui. </label><br>
+                        <input id="y3" type="radio" name="7" value="2"><label for="y3"> Neutral.</label><br>
+                        <input id="y4" type="radio" name="7" value="1"><label for="y4"> Tidak, tetapi kemasukan sesuatu aliran seterus tamatnya sekolah rendah adalah terlalu awal.</label><br>
+                        <input id="y5" type="radio" name="7" value="0"><label for="y5"> Tidak.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Singapura patut mengurangkan usia pengeluaran CPF.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex8CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex8SliderVal">3</span>
+                            <input id="ex8" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="8"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="u1" type="radio" name="8" value="4"><label for="u1"> Ya.</label><br>
+                        <input id="u2" type="radio" name="8" value="3"><label for="u2"> Ya, tetapi hanya kepada mereka yang dijanjikan akses pada usia 55 tahun.</label><br>
+                        <input id="u3" type="radio" name="8" value="2"><label for="u3"> Neutral.</label><br>
+                        <input id="u4" type="radio" name="8" value="1"><label for="u4"> Tidak, tetapi Singapura tidak patut meningkatkan usia pengeluaran melebihi 65 tahun.</label><br>
+                        <input id="u5" type="radio" name="8" value="0"><label for="u5"> Tidak.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>Rakyat patut mendapat akses percuma kepada duit CPF mereka apabila mereka sampai usia pengeluaran. </h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex9CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex9SliderVal">3</span>
+                            <input id="ex9" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="9"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="i1" type="radio" name="9" value="4"><label for="i1"> Ya.</label><br>
+                        <input id="i2" type="radio" name="9" value="3"><label for="i2"> Ya, akses patut ditunaikan secara beransur-ansur, tetapi had pengeluaran patut dikuatkuasakan.</label><br>
+                        <input id="i3" type="radio" name="9" value="2"><label for="i3"> Neutral.</label><br>
+                        <input id="i4" type="radio" name="9" value="1"><label for="i4"> Tidak, akses hanya boleh dikurangkan sedikit kerana kebebasan sepenuhnya mengundang penyalahgunaan oleh rakyat. </label><br>
+                        <input id="i5" type="radio" name="9" value="0"><label for="i5"> Tidak.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>Pembelanjaan kerajaan untuk skim-skim kesihatan harus ditingkatkan.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex10CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex10SliderVal">3</span>
+                            <input id="ex10" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="10"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="s1" type="radio" name="10" value="4"><label for="s1"> Ya.</label><br>
+                        <input id="s2" type="radio" name="10" value="3"><label for="s2"> Ya, tetapi cukai tidak patut dinaikkan dengan ketara.</label><br>
+                        <input id="s3" type="radio" name="10" value="2"><label for="s3"> Neutral.</label><br>
+                        <input id="s4" type="radio" name="10" value="1"><label for="s4"> Tidak, tetapi Medishield mesti dimajukan.</label><br>
+                        <input id="s5" type="radio" name="10" value="0"><label for="s5"> Tidak.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>Kerajaan patut meningkatkan pembelanjaan kebajikan.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex11CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex11SliderVal">3</span>
+                            <input id="ex11" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="11"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="d1" type="radio" name="11" value="4"><label for="d1"> Ya.</label><br>
+                        <input id="d2" type="radio" name="11" value="3"><label for="d2"> Ya, tetapi ia patut menggalakkan rakyat untuk berdikari.</label><br>
+                        <input id="d3" type="radio" name="11" value="2"><label for="d3"> Neutral.</label><br>
+                        <input id="d4" type="radio" name="11" value="1"><label for="d4"> Tidak, tetapi ia patut meningkatkan pembantuan kewangan untuk organisasi-organisasi kebajikan.</label><br>
+                        <input id="d5" type="radio" name="11" value="0"><label for="d5"> Tidak.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>Kerajaan harus mengenakan cukai pendapatan yang lebih tinggi untuk orang kaya.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex12CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex12SliderVal">3</span>
+                            <input id="ex12" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="12"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="f1" type="radio" name="12" value="4"><label for="f1"> Ya.</label><br>
+                        <input id="f2" type="radio" name="12" value="3"><label for="f2"> Ya, tetapi Singapura tidak patut menetapkan cukai pendapatannya pada tahap yang lebih daripada negara-negara lain.</label><br>
+                        <input id="f3" type="radio" name="12" value="2"><label for="f3"> Neutral.</label><br>
+                        <input id="f4" type="radio" name="12" value="1"><label for="f4"> Tidak, tetapi ia patut mengenakan cukai yang lebih tinggi pada orang kaya dengan cara-cara yang lain.</label><br>
+                        <input id="f5" type="radio" name="12" value="0"><label for="f5"> Tidak.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>Singapura patut menubukan gaji minimum.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex13CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex13SliderVal">3</span>
+                            <input id="ex13" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="13"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="g1" type="radio" name="13" value="4"><label for="g1"> Ya.</label><br>
+                        <input id="g2" type="radio" name="13" value="3"><label for="g2"> Ya, tetapi hanya untuk industri-insustri tertentu.</label><br>
+                        <input id="g3" type="radio" name="13" value="2"><label for="g3"> Neutral.</label><br>
+                        <input id="g4" type="radio" name="13" value="1"><label for="g4"> Tidak, tetapi kerajaan patut meningkatkan gaji untuk rakyat yang berpendapatan rendah.</label><br>
+                        <input id="g5" type="radio" name="13" value="0"><label for="g5"> Tidak.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>Kerajaan patut mengekalkan kuota etnik untuk kawasan-kawasan perumahan.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex14CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex14SliderVal">3</span>
+                            <input id="ex14" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="14"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="h1" type="radio" name="14" value="4"><label for="h1"> Ya.</label><br>
+                        <input id="h2" type="radio" name="14" value="3"><label for="h2"> Ya, tetapi ia patut melonggarkan kuota tersebut.</label><br>
+                        <input id="h3" type="radio" name="14" value="2"><label for="h3"> Neutral.</label><br>
+                        <input id="h4" type="radio" name="14" value="1"><label for="h4"> Tidak, tetapi kerajaan patut bercampur tangan apabila pengumpulan kumpulan etnik timbul dalam sesebuah kawasan perumahan.</label><br>
+                        <input id="h5" type="radio" name="14" value="0"><label for="h5"> Tidak.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>Gaji menteri-menteri harus dikurangkan dengan ketara.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex15CurrentSliderValLabel">Berapa penting adalah isu ini untuk anda? <br> <span style="font-size: 0.7em;">(1—tidak penting, 5-amat penting)</span> </span><br>
+                            <span class="slider-val" id="ex15SliderVal">3</span>
+                            <input id="ex15" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="15"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="z1" type="radio" name="15" value="4"><label for="z1"> Ya.</label><br>
+                        <input id="z2" type="radio" name="15" value="3"><label for="z2"> Ya, tetapi gaji patut ditetapkan berdasarkan tahap gaji sektor swasta.</label><br>
+                        <input id="z3" type="radio" name="15" value="2"><label for="z3"> Neutral.</label><br>
+                        <input id="z4" type="radio" name="15" value="1"><label for="z4"> Tidak, tetapi gaji harus lebih lumayan daripada pendapatan orang awam.</label><br>
+                        <input id="z5" type="radio" name="15" value="0"><label for="z5"> Tidak.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <button id="submit" type="submit">Tamat</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+          {% for question in questions %}
+
+          $("#ex" + {{question|safe}}).slider();
+          $("#ex" + {{question|safe}}).on("slide", function(slideEvt) {
+            $("#ex" + {{question|safe}} + "SliderVal").text(slideEvt.value);
+          });
+            {% endfor %}
+
+        });
+
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-67150391-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,449 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electionaire</title>
+
+  <meta property="og:url"           content="http://www.electionaire.info/survey" />
+  <meta property="og:type"          content="website" />
+  <meta property="og:title"         content="Electionaire" />
+  <meta property="og:description"   content="Take the survey to find out which party thinks like you." />
+  <meta property="og:image"         content="https://electionaire.s3.amazonaws.com/flag.svg" />
+
+  <link rel='shortcut icon' href='/static/ico/favicon.ico' type='image/x-icon'/ >
+  <link rel="stylesheet" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" media='screen and (min-width: 1001px)' href="/static/css/main.css">
+  <link rel="stylesheet" media='screen and (max-width: 1000px)' href="/static/css/1000.css">
+
+  <style>
+    html      { overflow-y: scroll; }
+    body      { padding-top:50px;}
+  </style>
+  <script src="/static/js/jquery-1.11.2.min.js"></script>
+  <script src="/static/js/bootstrap.js"></script>
+
+  <link rel="stylesheet" href="/static/css/bootstrap-slider.css">
+  <script src="/static/js/bootstrap-slider.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-static">
+        <div class="container-fluid">
+            <!-- Brand and toggle get GROUPED for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('front')}}">Electionaire</a>
+            </div>
+
+            <!-- COLLECT the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{url_for('survey_tm')}}">ஆய்வு</a></li>
+                    <li><a href="{{url_for('about_tm')}}">ஆய்வு பற்றி</a></li>
+                    <li><a href="mailto:weijie.koh@yale-nus.edu.sg" target="_top">தொடர்புக் கொள்ள</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a target="_blank" href="https://github.com/seansaito/Electionaire">பார்வை மூல குறியீடு  <span><i class="fa fa-github"></i></span></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+
+        <div class="jumbotron">
+            <h2>எந்த கட்சியுடன் உங்கள் கருத்து ஒத்துப்போகிறது.</h2>
+
+
+            <form method="POST" action="{{url_for('survey_tm')}}">
+                <div class="question">
+                    <h2>சிங்கப்பூர் வருமான சமத்துவமின்மைக்கு முக்கியத்துவம் கொடுக்க வேண்டும்.</h2>
+                    <div class="container">
+                        <div class="slider-container">
+                            <div class="slider slider-horizontal">
+                                <span id="ex1CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex1SliderVal">3</span>
+                            <input id="ex1" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="1"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="r1" type="radio" name="1" value="4"><label for="r1"> ஆமாம்.</label><br>
+                        <input id="r2" type="radio" name="1" value="3"><label for="r2"> ஆமாம் சிங்கப்பூர் தன்னுடைய வளர்ச்சியை சிறிது குறைத்து மத்துவமின்மைக்கு முக்கியத்துவம் கொடுக்கலாம்.</label><br>
+                        <input id="r3" type="radio" name="1" value="2"><label for="r3"> நடுநிலை.</label><br>
+                        <input id="r4" type="radio" name="1" value="1"><label for="r4"> இல்லை, வளர்ச்சிக்கு முக்கியத்தும் கொடுப்பதால் ஏழைகளும் பயன் அடைவர்.</label><br>
+                        <input id="r5" type="radio" name="1" value="0"><label for="r5"> இல்லை.</label><br>
+                    </div>
+                    </div>
+
+                </div>
+
+                <div class="question" id="two-line-qn">
+                    <h2>சிங்கப்பூர் அயல்நாட்டு நுழைவுச்சான்றை வெளிநாட்டு உழியர்களுக்கு கொடுப்பதை குறைக்க வேண்டும்.</h2>
+                    <div class="container">
+                        <div class="slider-container">
+                            <div class="slider slider-horizontal">
+                                <span id="ex2CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex2SliderVal">3</span>
+                            <input id="ex2" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="2"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="l1" type="radio" name="2" value="4"><label for="l1"> ஆமாம்.</label><br>
+                        <input id="l2" type="radio" name="2" value="3"><label for="l2"> ஆமாம், அதிகம் வெளிநாட்டு உழியர்கள் உள்ள  துறைகளில் அயல்நாட்டு நுழைவுச்சான்றுகள் வழங்குவதைக் குறைக்க வேண்டும்.</label><br>
+                        <input id="l3" type="radio" name="2" value="2"><label for="l3"> நடுநிலை.</label><br>
+                        <input id="l4" type="radio" name="2" value="1"><label for="l4"> இல்லை, ஆனால் சிங்கப்பூரர்கள் அதிகம் வேலை பார்க்க விரும்பாத வேலை துறைகளில் அயல்நாட்டு நுழைவுச்சான்று கொடுப்பதை அதிகரிக்கலாம்.</label><br>
+                        <input id="l5" type="radio" name="2" value="0"><label for="l5"> இல்லை.</label><br>
+                    </div>
+                    </div>
+
+                </div>
+
+
+                <div class="question" id="two-line-qn">
+                  <h2>சிங்கப்பூர் நிரந்தர குடியுரிமையை மேல் தட்ட வெளி நாட்டு திறனாளர்களுக்கு கொடுப்பதை குறைக்க வேண்டும்.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex3CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? </br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex3SliderVal">3</span>
+                            <input id="ex3" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="3"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="q1" type="radio" name="3" value="4"><label for="q1"> ஆமாம்.</label><br>
+                        <input id="q2" type="radio" name="3" value="3"><label for="q2"> ஆமாம், ஆனால் மக்கள் தொகை குறைவதை தவிர்க்க வேண்டும்.</label><br>
+                        <input id="q3" type="radio" name="3" value="2"><label for="q3"> நடுநிலை.</label><br>
+                        <input id="q4" type="radio" name="3" value="1"><label for="q4"> இல்லை, மக்கள் தொகை அதிகரிக்கும் வரை.</label><br>
+                        <input id="q5" type="radio" name="3" value="0"><label for="q5"> இல்லை.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2> நிறுவனங்கள் வெளி நாட்டு திறனாளருக்கு வேலை கொடுக்கும் முன்பு சிங்கப்பூரரை அவ்விடத்தில் நிறுத்த முயற்சித்திருக்க வேண்டும். </h2>
+
+                       <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex4CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex4SliderVal">3</span>
+                            <input id="ex4" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="4"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="w1" type="radio" name="4" value="4"><label for="w1"> ஆமாம்.</label><br>
+                        <input id="w2" type="radio" name="4" value="3"><label for="w2"> ஆமாம், ஆனால் நிர்வாகம் மற்றும் மேல் தட்ட வேலைகளுக்கு மட்டும்.</label><br>
+                        <input id="w3" type="radio" name="4" value="2"><label for="w3"> நடுநிலை.</label><br>
+                        <input id="w4" type="radio" name="4" value="1"><label for="w4"> இல்லை, நிறுவனங்கள் வெளி நாட்டு திறனாளருக்கு வேலை கொடுக்கும் முன்பு சிங்கப்பூரரை அவ்விடத்தில் நிறுத்த 2 வாரங்கள் விளம்பரம் செய்த பின்பு வெளி நாட்டு திறனாளருக்கு வேலை கொடுக்கலாம்.</label><br>
+                        <input id="w5" type="radio" name="4" value="0"><label for="w5"> இல்லை.</label><br>
+                    </div>
+                       </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>சிங்கப்பூரில் தற்பால்சேர்க்கையை குற்றம் என்று சொல்லும் 377எ என்னும் சட்டத்தை ஒழிக்க வேண்டும்.</h2>
+                   <div class="container">
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex5CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex5SliderVal">3</span>
+                            <input id="ex5" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="5"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="e1" type="radio" name="5" value="4"><label for="e1"> ஆமாம்.</label><br>
+                        <input id="e2" type="radio" name="5" value="3"><label for="e2"> Yes, but the majority has to approve of any changes to it. </label><br>
+                        <input id="e3" type="radio" name="5" value="2"><label for="e3"> நடுநிலை.</label><br>
+                        <input id="e4" type="radio" name="5" value="1"><label for="e4"> இல்லை, ஆனால் சட்டத்தை செயல்படுத்தக்கூடாது. </label><br>
+                        <input id="e5" type="radio" name="5" value="0"><label for="e5"> இல்லை.</label><br>
+                    </div>
+
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>சிங்கப்பூர் குடிமக்களுக்கு கொடுத்திருக்கும் சுதந்திரத்தை விசாலமாக்க வேண்டும் ( e.g. கருத்து சுதந்திரம்)</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex6CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex6SliderVal">3</span>
+                            <input id="ex6" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="6"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="t1" type="radio" name="6" value="4"><label for="t1"> ஆமாம்.</label><br>
+                        <input id="t2" type="radio" name="6" value="3"><label for="t2"> ஆமாம், ஆனால் சமூக ஒரிங்கிணைப்புக்கு முதல் முக்கியத்துவம் கொடுக்க வேண்டும்.</label><br>
+                        <input id="t3" type="radio" name="6" value="2"><label for="t3"> நடுநிலை.</label><br>
+                        <input id="t4" type="radio" name="6" value="1"><label for="t4"> இல்லை, ஆனால் சட்டம் மீறுபவர்களுக்கு குறைந்தபட்ச விளைவுகள் கொடுத்தால் போதும்.</label><br>
+                        <input id="t5" type="radio" name="6" value="0"><label for="t5"> இல்லை.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>சிங்கப்பூர் கல்வி திட்டத்தில் மாணவர்களை சிடிரிமிங் என்ற முறையில் பிரிக்கக் கூடாது.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex7CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex7SliderVal">3</span>
+                            <input id="ex7" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="7"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="y1" type="radio" name="7" value="4"><label for="y1"> ஆமாம்.</label><br>
+                        <input id="y2" type="radio" name="7" value="3"><label for="y2">  ஆமாம், ஆனால் புது வழிகள் கிடைக்கும் வரை சிடிரிமிங் இருக்க வேண்டும். </label><br>
+                        <input id="y3" type="radio" name="7" value="2"><label for="y3"> நடுநிலை.</label><br>
+                        <input id="y4" type="radio" name="7" value="1"><label for="y4"> இல்லை, ஆனால் தொடக்கப்பள்ளியில் ஆரம்பிப்பதை தவிர்க்கலாம்.</label><br>
+                        <input id="y5" type="radio" name="7" value="0"><label for="y5"> இல்லை.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2> சிங்கப்பூர் சி.பி.வ் நிதிகளை பெறும் வயது பிரம்பை குறைக்க வேண்டும்.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex8CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex8SliderVal">3</span>
+                            <input id="ex8" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="8"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="u1" type="radio" name="8" value="4"><label for="u1"> ஆமாம்.</label><br>
+                        <input id="u2" type="radio" name="8" value="3"><label for="u2"> ஆமாம், 55 வயது என்று வாக்கு கொடுத்தவர்களுக்கு மட்டும்.</label><br>
+                        <input id="u3" type="radio" name="8" value="2"><label for="u3"> நடுநிலை.</label><br>
+                        <input id="u4" type="radio" name="8" value="1"><label for="u4"> இல்லை, ஆனால் வயது பிரம்பை 65 வயதுக்கு மேல் அதிகரிக்கக்கூடாது.</label><br>
+                        <input id="u5" type="radio" name="8" value="0"><label for="u5"> இல்லை.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question" id="two-line-qn">
+                  <h2>வயது பிரம்பை அடைந்தவுடன் குடிமக்களுக்கு சி.பி.வ் நிதிகளை பயன்படுத்த முழு சுதந்திரம் கொடுக்க  வேண்டும். </h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex9CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex9SliderVal">3</span>
+                            <input id="ex9" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="9"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="i1" type="radio" name="9" value="4"><label for="i1"> ஆமாம்.</label><br>
+                        <input id="i2" type="radio" name="9" value="3"><label for="i2"> ஆமாம், ஆனால் சில நிபர்ந்தனைகளும் வரம்புகளும் இருக்க வேண்டும். </label><br>
+                        <input id="i3" type="radio" name="9" value="2"><label for="i3"> நடுநிலை.</label><br>
+                        <input id="i4" type="radio" name="9" value="1"><label for="i4"> இல்லை, சுதந்திரம் பிரச்ச்னைகள் ஏற்படுத்தும். சிறிது வரம்புகள் மட்டும் குறைத்தால் போதும். </label><br>
+                        <input id="i5" type="radio" name="9" value="0"><label for="i5"> இல்லை.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>அரசாங்கம் மருத்துவ வசதிகளுக்கு செலவழிப்பதை அதிகரிக்க வேண்டும்.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex10CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex10SliderVal">3</span>
+                            <input id="ex10" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="10"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="s1" type="radio" name="10" value="4"><label for="s1"> ஆமாம்.</label><br>
+                        <input id="s2" type="radio" name="10" value="3"><label for="s2">  ஆமாம், ஆனால் வரிகள் அதிகரிக்கக்கூடாது.</label><br>
+                        <input id="s3" type="radio" name="10" value="2"><label for="s3"> நடுநிலை.</label><br>
+                        <input id="s4" type="radio" name="10" value="1"><label for="s4"> இல்லை, ஆனால் மெடிஷியில்டு திட்டத்தை சீர் செய்ய வேண்டும்.</label><br>
+                        <input id="s5" type="radio" name="10" value="0"><label for="s5"> இல்லை.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>அரசாங்கம், மக்களுக்கு கொடுக்கும் உதவி தொகைகளை அதிகரிக்க வேண்டும்.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex11CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex11SliderVal">3</span>
+                            <input id="ex11" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="11"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="d1" type="radio" name="11" value="4"><label for="d1"> ஆமாம்.</label><br>
+                        <input id="d2" type="radio" name="11" value="3"><label for="d2"> ஆமாம், ஆனால் மக்கள் சுயமாக தங்களை பார்த்துக்கொள்ள ஊக்குவிக்கும் வகையில் அமைய வேண்டும்.</label><br>
+                        <input id="d3" type="radio" name="11" value="2"><label for="d3"> நடுநிலை.</label><br>
+                        <input id="d4" type="radio" name="11" value="1"><label for="d4"> இல்லை, ஆனால் தொண்டு செய்யும் நிறுவன்ங்களுக்கு அதிக நிதிகள் கொடுக்க வேண்டும்.</label><br>
+                        <input id="d5" type="radio" name="11" value="0"><label for="d5"> இல்லை.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>அரசாங்கம் பணக்காரர்களுக்கு வருமான வரிகள் அதிகரிக்க வேண்டும்.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex12CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex12SliderVal">3</span>
+                            <input id="ex12" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="12"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="f1" type="radio" name="12" value="4"><label for="f1"> ஆமாம்.</label><br>
+                        <input id="f2" type="radio" name="12" value="3"><label for="f2"> ஆமாம். அனால் மற்ற நாடுகளுக்கு மேல் வரிகளை அதிகரிக்ககூடாது.</label><br>
+                        <input id="f3" type="radio" name="12" value="2"><label for="f3"> நடுநிலை.</label><br>
+                        <input id="f4" type="radio" name="12" value="1"><label for="f4"> இல்லை, வரிகளை மற்ற முறைகளில் அதிகரிக்கலாம்.</label><br>
+                        <input id="f5" type="radio" name="12" value="0"><label for="f5"> இல்லை.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>சிங்கப்பூர் குறைந்த பட்ச வருமான நிலையை செயல்படுத்த வேண்டும்.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex13CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex13SliderVal">3</span>
+                            <input id="ex13" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="13"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="g1" type="radio" name="13" value="4"><label for="g1"> ஆமாம்.</label><br>
+                        <input id="g2" type="radio" name="13" value="3"><label for="g2"> ஆமாம், சில துறைகளில் மட்டும்.</label><br>
+                        <input id="g3" type="radio" name="13" value="2"><label for="g3"> நடுநிலை.</label><br>
+                        <input id="g4" type="radio" name="13" value="1"><label for="g4"> இல்லை, வருமானம் குறைந்தவர்களுக்கு அதிக  உதவி நிதிகள் கொடுக்கலாம்.</label><br>
+                        <input id="g5" type="radio" name="13" value="0"><label for="g5"> இல்லை.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>அரசாங்கம், வீடு வட்டாரங்களில் இன ஒதுக்கிடுகளை/வரையறைகளை தொடர வேண்டும்.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex14CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex14SliderVal">3</span>
+                            <input id="ex14" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="14"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="h1" type="radio" name="14" value="4"><label for="h1"> ஆமாம்.</label><br>
+                        <input id="h2" type="radio" name="14" value="3"><label for="h2"> ஆமாம், ஆனால் சலுகைகள் கொடுக்கலாம்.</label><br>
+                        <input id="h3" type="radio" name="14" value="2"><label for="h3"> நடுநிலை.</label><br>
+                        <input id="h4" type="radio" name="14" value="1"><label for="h4"> இல்லை, ஆனால் ஒரிடத்தில் ஒரு இனம் மட்டுமே அதிகம் இருந்தால் அரசாங்கம் குறுக்கிடலாம்.</label><br>
+                        <input id="h5" type="radio" name="14" value="0"><label for="h5"> இல்லை.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <div class="question">
+                  <h2>அமைச்சர்களின் சம்பளம் குறைக்க வேண்டும்.</h2>
+                   <div class="container">
+
+                    <div class="slider-container">
+                        <div class="slider slider-horizontal">
+                            <span id="ex15CurrentSliderValLabel">இந்த விஷ்யம் உங்களுக்கு எவ்வளவு முக்கியமானது? <br> <span style="font-size: 0.7em;">(1-low, 5-high)</span> </span><br>
+                            <span class="slider-val" id="ex15SliderVal">3</span>
+                            <input id="ex15" type="text" data-slider-min="1" data-slider-max="5" data-slider-step="1"
+                                   data-slider-value="3" name="15"/>
+
+                        </div>
+                    </div>
+                    <div class="radio-container">
+                        <input id="z1" type="radio" name="15" value="4"><label for="z1"> ஆமாம்.</label><br>
+                        <input id="z2" type="radio" name="15" value="3"><label for="z2"> ஆமாம், ஆனால் தனி நிறுவனங்கள் அளவிற்காவது சம்பளம் வழங்கவேண்டும்.</label><br>
+                        <input id="z3" type="radio" name="15" value="2"><label for="z3"> நடுநிலை.</label><br>
+                        <input id="z4" type="radio" name="15" value="1"><label for="z4"> இல்லை, ஆனால் மற்ற துறைகள் விட சற்று அதிகம் இருக்கலாம்.</label><br>
+                        <input id="z5" type="radio" name="15" value="0"><label for="z5"> இல்லை.</label><br>
+                    </div>
+                   </div>
+                </div>
+
+                <button id="submit" type="submit">கணிப்புகளை பதிவுச் செய்யுங்கள்</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+          {% for question in questions %}
+
+          $("#ex" + {{question|safe}}).slider();
+          $("#ex" + {{question|safe}}).on("slide", function(slideEvt) {
+            $("#ex" + {{question|safe}} + "SliderVal").text(slideEvt.value);
+          });
+            {% endfor %}
+
+        });
+
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-67150391-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+</body>
+</html>

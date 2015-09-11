@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electionaire</title>
 
-    <meta property="og:url"           content="https://www.electionaire.info/survey" />
+    <meta property="og:url"           content="http://www.electionaire.info/survey" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Electionaire"/>
     <meta property="og:description"   content="Take the survey to find out which party thinks like you." />
@@ -98,7 +98,16 @@
 <!--        {% set counter = counter + 1 %}-->
     {% endfor %}
 
-    <h2>Check out how you got these results <a href="{{url_for('about')}}">here.</a></h2>
+    <h2 id="match-text">Check out how you got these results <a href="{{url_for('about')}}">here.</a></h2>
+    <h2 id="share-results">Share your results:</h2>
+      <span>
+        <div class="fb-share-button"
+             data-href="http://www.electionaire.info/{{rankings[0]['name']}}/{{ '%.2f' | format(rankings[0]['deviation'])}}/{{rankings[1]['name']}}/{{ '%.1f' | format(rankings[1]['deviation'])}}/{{rankings[2]['name']}}/{{ '%.2f' | format(rankings[2]['deviation'])}}"
+             data-layout="button">
+        </div>
+      </span>
+    </div>
+
 
     </div>
 

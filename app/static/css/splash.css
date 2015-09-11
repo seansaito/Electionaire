@@ -109,6 +109,9 @@ h1 {
     .navbar-nav {
         margin: 0px;
     }
+    .navbar-inverse {
+        margin-bottom: 0px;
+    }
 
     nav {
         margin-top: -50px !important;
@@ -165,6 +168,34 @@ h1 {
         width: 100%;
     }
 
+    #main-splash {
+    padding: 40px;
+    background-color: rgba(45,66,85,0.5);
+    margin-top: 0px;
+    }
+
+    #language-bar {
+        text-align: center;
+        padding-left: 0px;
+    }
+
+    #language-bar li{
+        display: inline;
+        text-align: center;
+        font-size: 28px;
+        color: white;
+        font-family: "Roboto Slab", sans-serif;
+    }
+
+    #language-bar a {
+        text-decoration: none;
+        color: white;
+    }
+
+    #language-bar a:hover {
+        text-decoration: underline;
+    }
+
 
 }
 
@@ -181,7 +212,36 @@ h1 {
         height: 200px;
         background: none;
     }
+
+    #main-splash {
+        padding: 40px;
+        background-color: rgba(45,66,85,0.5);
+        margin-top: 10%;
+    }
+    
+    #language-bar {
+        text-align: center;
+        padding-left: 0px;
+    }
+
+    #language-bar li{
+        display: inline;
+        text-align: center;
+        font-size: 35px !important;
+        color: white;
+        font-family: "Roboto Slab", sans-serif;
+    }
+
+    #language-bar a {
+        text-decoration: none;
+        color: white;
+    }
+
+    #language-bar a:hover {
+        text-decoration: underline;
+    }
 }
+
 #submit a {
     color: white;
     text-decoration: none;
@@ -216,8 +276,4 @@ h1 {
     color: #ADBCC3;
 }
 
-#main-splash {
-    padding: 40px;
-    background-color: rgba(45,66,85,0.5);
-    margin-top: 10%;
-}
+

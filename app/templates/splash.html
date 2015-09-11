@@ -9,7 +9,7 @@
   <meta property="og:title"         content="I took the survey! Find out which party matches your views." />
   <meta property="og:description"   content="Here are my top three matches: \n 1. {{first}} - {{'%.2f' | format(fp)}}%        \n 2. {{second}} - {{ '%.2f' | format(sp)}}%         \n 3. {{third}} - {{ '%.2f' | format(tp)}}%" />
   <meta property="og:image"         content="https://electionaire.s3.amazonaws.com/flag.svg" />
-    <link rel='shortcut icon' href='/static/ico/favicon.ico' type='image/x-icon'/ >
+    <link rel='shortcut icon' href='/static/ico/favicon.ico' type='image    /x-icon'/ >
     <link rel="stylesheet" href="/static/css/bootstrap.css">
     <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css">
@@ -47,7 +47,7 @@
             <!-- COLLECT the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{url_for('index')}}">SURVEY <span class="sr-only">(current)</span></a></li>
+                    <li><a href="{{url_for('index')}}">SURVEY</a></li>
                     <li><a href="{{url_for('about')}}">ABOUT</a></li>
                     <li><a href="mailto:weijie.koh@yale-nus.edu.sg" target="_top">CONTACT</a></li>
                 </ul>
@@ -61,11 +61,21 @@
         <h1>15 questions. 10 parties. 5 minutes. </h1>
         <br>
         <h1>Find out which party thinks like you.</h1>
-        <div id="submit-div">
-            <a href="{{url_for('index')}}"><button id="submit">Take the Survey!</button></a>
-        </div>
-    </div>
 
+
+
+            <div id="submit-div">
+                <a href="{{url_for('index')}}"><button id="submit">Take the Survey!</button></a>
+            </div>
+
+            <ul id="language-bar">
+                 <li><a href="{{url_for('index')}}">English</a> | </li>
+                 <li><a href="{{url_for('survey_ch')}}">中文</a> | </li>
+                 <li><a href="{{url_for('survey_ma')}}">Melayu</a> | </li>
+                 <li><a href="{{url_for('survey_tm')}}">தமிழ்</a></li>
+               </ul>
+
+    </div>
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -15,6 +15,11 @@ class CSVRecorder(object):
 
     def record_answer(self, row):
         try:
+            connector = boto.connect_s3(acc_key, acc_sec)
+            b = connector.get_bucket(bucket)
+            bucket_key = Key(b)
+            bucket_key.key = "results.csv"
+            bucket_key.get_contents_to_filename("app/static/csv/results.csv")
             fp = open("app/static/csv/results.csv", "a")
             c = csv.writer(fp)
             c.writerow(row)
@@ -34,4 +39,3 @@ class S3Connector(object):
         bucket_key = Key(self.b)
         bucket_key.key = self.key
         bucket_key.set_contents_from_filename(self.filename)
-        self.b.set_acl("public-read", self.key)
